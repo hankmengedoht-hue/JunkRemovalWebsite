@@ -323,10 +323,116 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  /* ---- Scroll Progress Bar (#19) ---- */
+  const progressBar = document.createElement('div');
+  progressBar.id = 'scroll-progress';
+  document.body.prepend(progressBar);
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }, { passive: true });
+
+  /* ---- Back-to-top Button (#20) ---- */
+  const btt = document.createElement('button');
+  btt.id = 'back-to-top';
+  btt.setAttribute('aria-label', 'Back to top');
+  btt.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>`;
+  document.body.appendChild(btt);
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) { btt.classList.add('visible'); }
+    else { btt.classList.remove('visible'); }
+  }, { passive: true });
+  btt.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  /* ---- FAQ Accordion (#12) ---- */
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.faq-question').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling?.classList.remove('open');
+      });
+      // Open clicked (toggle)
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling?.classList.add('open');
+      }
+    });
+  });
+
+  /* ---- Home Gallery Preview Loading (#14 + #22 skeleton) ---- */
+  async function loadHomeGallery() {
+    const homeGrid = document.getElementById('home-gallery-grid');
+    if (!homeGrid) return;
+
+    // Inject skeleton placeholders
+    homeGrid.innerHTML = Array(4).fill(0).map(() =>
+      `<div class="gallery-item skeleton" style="aspect-ratio:1;"></div>`
+    ).join('');
+
+    try {
+      const res = await fetch('_data/gallery.json');
+      const data = await res.json();
+      const photos = (data.photos || []).filter(p => p.published !== false).slice(0, 4);
+
+      if (photos.length === 0) {
+        homeGrid.innerHTML = Array(4).fill(0).map((_, i) => `
+          <div class="gallery-item" data-anim data-anim-delay="${i + 1}">
+            <div class="gallery-placeholder" style="background:var(--light-gray);height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.78rem;font-family:var(--font-head);font-weight:600;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:30px;height:30px;opacity:.38;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Coming Soon
+            </div>
+          </div>`).join('');
+        initScrollAnimations();
+        return;
+      }
+
+      homeGrid.innerHTML = photos.map((photo, i) => `
+        <div class="gallery-item" data-anim data-anim-delay="${i + 1}">
+          <img src="${photo.image}" alt="${photo.alt || photo.caption || 'Junk removal job in Charleston SC'}" loading="lazy">
+        </div>`).join('');
+
+      initScrollAnimations();
+
+    } catch {
+      // On fetch failure show coming soon placeholders
+      homeGrid.innerHTML = Array(4).fill(0).map((_, i) => `
+        <div class="gallery-item" data-anim data-anim-delay="${i + 1}">
+          <div class="gallery-placeholder" style="background:var(--light-gray);height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.78rem;font-family:var(--font-head);font-weight:600;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:30px;height:30px;opacity:.38;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            Coming Soon
+          </div>
+        </div>`).join('');
+      initScrollAnimations();
+    }
+  }
+
+  /* ---- Gallery skeleton loading enhancement (#22) ---- */
+  const galleryGrid = document.getElementById('gallery-grid');
+  if (galleryGrid) {
+    galleryGrid.innerHTML = Array(8).fill(0).map(() =>
+      `<div class="gallery-full-item skeleton" style="aspect-ratio:4/3;cursor:default;"></div>`
+    ).join('');
+  }
+
+  const reviewsContainer = document.getElementById('reviews-container');
+  if (reviewsContainer) {
+    reviewsContainer.innerHTML = `
+      <div class="testimonials-grid">
+        ${Array(3).fill(0).map(() => `
+          <div class="testimonial-card skeleton" style="height:160px;"></div>
+        `).join('')}
+      </div>`;
+  }
+
   /* ---- Init ---- */
   initScrollAnimations();
   loadGallery();
   loadReviews();
+  loadHomeGallery();
   bindLightboxItems();
 
 });

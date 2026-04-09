@@ -48,10 +48,88 @@
   }
   </script>
 
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does junk removal cost in Charleston?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our pricing is based on volume and type of junk. A minimum load (1-2 items) starts at $75, a half truck starts at $175, and a full truck starts at $325. We give you an upfront price on-site before any work begins — no surprises."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer same-day junk removal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Same-day service is often available depending on our schedule. Call or text us and we'll do our best to get there today."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What areas do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We serve all of Greater Charleston including the Charleston Peninsula, James Island, Johns Island, Mount Pleasant, Folly Beach, North Charleston, West Ashley, Daniel Island, Sullivan's Island, Isle of Palms, Kiawah Island, Hanahan, and Edisto Beach."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What items do you NOT take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For safety and environmental reasons, we cannot haul hazardous waste, chemical drums, asbestos, oil/gas tanks, medical waste, or paint cans with liquid paint. Not sure about an item? Give us a call and we'll let you know."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I pay?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We accept cash, PayPal, Venmo, and check. Payment is due at the time of service. We never charge you until you approve the price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are you licensed and insured?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Palmetto Haul Co. is a licensed and insured junk removal business operating in Charleston, SC."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to be home for the pickup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In most cases, yes — we need someone present to approve the price before we begin. However, we can discuss specific arrangements if you have a unique situation. Just give us a call."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I get a quote?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The fastest way is to call or text us at (843) 555-0100. You can also fill out our online booking form and we'll get back to you within an hour."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
@@ -71,6 +149,7 @@
 
     <div class="nav-cta">
       <a href="tel:+18435550100" class="btn btn-green btn-sm">&#128222; Call Now</a>
+      <a href="sms:+18435550100" class="btn btn-outline-white btn-sm">&#128241; Text Us</a>
       <button class="btn btn-secondary btn-sm" data-modal="booking-modal">Book a Pickup</button>
     </div>
 
@@ -89,6 +168,7 @@
     </nav>
     <div class="mobile-cta-row">
       <a href="tel:+18435550100" class="btn btn-green">&#128222; Call Now</a>
+      <a href="sms:+18435550100" class="btn btn-outline">&#128241; Text Us</a>
       <button class="btn btn-primary" data-modal="booking-modal">Book a Pickup</button>
     </div>
   </div>
@@ -114,6 +194,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01z"/></svg>
         Call for a Free Quote
       </a>
+      <a href="sms:+18435550100" class="btn btn-outline-white btn-lg">&#128241; Text Us</a>
       <button class="btn btn-secondary btn-lg" data-modal="booking-modal">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Book a Pickup
@@ -182,6 +263,47 @@
   </div>
 </section>
 
+<!-- ===================== RAINBOW ROW ACCENT STRIP ===================== -->
+<div class="rainbow-strip" aria-hidden="true">
+  <div style="background:var(--peach);"></div>
+  <div style="background:var(--coral);"></div>
+  <div style="background:var(--yellow);"></div>
+  <div style="background:var(--lavender);"></div>
+  <div style="background:var(--sky);"></div>
+  <div style="background:var(--mint);"></div>
+</div>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="how-it-works" aria-labelledby="how-it-works-heading" id="main-content">
+  <div class="container">
+    <div class="section-header" data-anim>
+      <span class="badge">Simple Process</span>
+      <h2 id="how-it-works-heading">How It Works</h2>
+      <p>Getting rid of your junk shouldn't be complicated. Here's how easy it is.</p>
+    </div>
+    <div class="hiw-grid">
+      <div class="hiw-card" data-anim data-anim-delay="1">
+        <div class="hiw-number">1</div>
+        <div class="hiw-icon">📞</div>
+        <h3>Call or Book Online</h3>
+        <p>Give us a call, send a text at (843) 555-0100, or submit the booking form below. We'll follow up quickly to confirm your appointment and give you a free quote — no obligation.</p>
+      </div>
+      <div class="hiw-card" data-anim data-anim-delay="2">
+        <div class="hiw-number">2</div>
+        <div class="hiw-icon">💰</div>
+        <h3>We Give You a Free Quote</h3>
+        <p>Hank or Jacob will give you an upfront price based on what you have. No hidden fees, no per-hour guessing — just a clear number you approve before we touch anything.</p>
+      </div>
+      <div class="hiw-card" data-anim data-anim-delay="3">
+        <div class="hiw-number">3</div>
+        <div class="hiw-icon">✅</div>
+        <h3>Junk Gone, Space Cleared</h3>
+        <p>We do all the heavy lifting, haul everything away, and do a quick sweep of the area. You relax and enjoy your newly cleared space. Pay at completion — that's it!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== SERVICES SNAPSHOT ===================== -->
 <section class="services-snapshot" aria-labelledby="services-heading">
   <div class="container">
@@ -192,40 +314,79 @@
     </div>
 
     <div class="services-grid">
-      <div class="service-card" data-anim data-anim-delay="1">
+      <a href="services.html#residential" class="service-card" data-anim data-anim-delay="1">
         <div class="service-icon" style="background:#eef7f2;">🏠</div>
         <h3>Residential Junk Removal</h3>
         <p>Attics, basements, garages, full house cleanouts — we remove all the clutter so you don't have to.</p>
-      </div>
-      <div class="service-card" data-anim data-anim-delay="2">
+      </a>
+      <a href="services.html#commercial" class="service-card" data-anim data-anim-delay="2">
         <div class="service-icon" style="background:#dbeafe;">🏢</div>
         <h3>Commercial Space Hauling</h3>
         <p>Office cleanouts, retail space clearing, warehouse junk — we work around your schedule to minimize downtime.</p>
-      </div>
-      <div class="service-card" data-anim data-anim-delay="3">
+      </a>
+      <a href="services.html#realestate" class="service-card" data-anim data-anim-delay="3">
         <div class="service-icon" style="background:#fef3c7;">🔑</div>
         <h3>Real Estate &amp; Eviction Cleanouts</h3>
         <p>Fast turnaround for realtors, property managers, and landlords who need a space cleared quickly.</p>
-      </div>
-      <div class="service-card" data-anim data-anim-delay="4">
+      </a>
+      <a href="services.html#yard" class="service-card" data-anim data-anim-delay="4">
         <div class="service-icon" style="background:#d1fae5;">🌿</div>
         <h3>Yard Debris Removal</h3>
         <p>Storm debris, brush piles, old fencing — we haul away yard waste so your outdoor space is pristine again.</p>
-      </div>
-      <div class="service-card" data-anim data-anim-delay="5">
+      </a>
+      <a href="services.html#furniture" class="service-card" data-anim data-anim-delay="5">
         <div class="service-icon" style="background:#ede9fe;">🛋️</div>
         <h3>Furniture &amp; Appliance Disposal</h3>
         <p>Old couches, refrigerators, mattresses, washers — we handle the heavy lifting so you don't hurt your back.</p>
-      </div>
-      <div class="service-card" data-anim data-anim-delay="6">
+      </a>
+      <a href="services.html#construction" class="service-card" data-anim data-anim-delay="6">
         <div class="service-icon" style="background:#fee2e2;">🔨</div>
         <h3>Construction Debris Removal</h3>
         <p>Drywall, lumber scraps, tile, flooring — we clean up after your renovation or remodel project.</p>
-      </div>
+      </a>
     </div>
 
     <div class="section-cta" data-anim>
       <a href="services.html" class="btn btn-outline">View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICING TRANSPARENCY ===================== -->
+<section class="pricing-section" aria-labelledby="pricing-heading">
+  <div class="container">
+    <div class="section-header" data-anim>
+      <span class="badge">Transparent Pricing</span>
+      <h2 id="pricing-heading">Honest Pricing. No Surprises.</h2>
+      <p>We base our price on volume and type of junk &mdash; not the hour.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card" data-anim data-anim-delay="1">
+        <div class="pricing-icon">📦</div>
+        <h3>Minimum Load</h3>
+        <p class="pricing-desc">1–2 items or a small amount of junk</p>
+        <div class="pricing-price">Starting at $75</div>
+      </div>
+      <div class="pricing-card pricing-card-featured" data-anim data-anim-delay="2">
+        <div class="pricing-badge-top">Most Popular</div>
+        <div class="pricing-icon">🚛</div>
+        <h3>Half Truck</h3>
+        <p class="pricing-desc">A medium-sized load, like a few rooms of furniture</p>
+        <div class="pricing-price">Starting at $175</div>
+      </div>
+      <div class="pricing-card" data-anim data-anim-delay="3">
+        <div class="pricing-icon">🏠</div>
+        <h3>Full Truck</h3>
+        <p class="pricing-desc">Large cleanouts, whole rooms, or commercial spaces</p>
+        <div class="pricing-price">Starting at $325</div>
+      </div>
+    </div>
+    <div class="pricing-note" data-anim>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+      Final price quoted on-site. We don't charge you until you approve.
+    </div>
+    <div class="section-cta" data-anim>
+      <button class="btn btn-primary btn-lg" data-modal="booking-modal">Get Your Free Quote</button>
     </div>
   </div>
 </section>
@@ -280,35 +441,106 @@
       <p>Photos from recent jobs across the Charleston area. We document our cleanouts so you can see the difference we make.</p>
     </div>
 
-    <div class="gallery-grid">
-      <div class="gallery-item" data-anim data-anim-delay="1">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Before Photo
-        </div>
-      </div>
-      <div class="gallery-item" data-anim data-anim-delay="2">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          After Photo
-        </div>
-      </div>
-      <div class="gallery-item" data-anim data-anim-delay="3">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Before Photo
-        </div>
-      </div>
-      <div class="gallery-item" data-anim data-anim-delay="4">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          After Photo
-        </div>
-      </div>
+    <div class="gallery-grid" id="home-gallery-grid">
+      <!-- Filled dynamically by main.js from _data/gallery.json -->
     </div>
 
     <div class="section-cta" data-anim>
       <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq-section" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-header" data-anim>
+      <span class="badge">FAQ</span>
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+      <p>Everything you need to know before booking your junk removal.</p>
+    </div>
+    <div class="faq-list" data-anim>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How much does junk removal cost in Charleston?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Our pricing is based on volume and type of junk. A minimum load (1–2 items) starts at $75, a half truck starts at $175, and a full truck starts at $325. We give you an upfront price before any work begins — no surprises, ever.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you offer same-day junk removal?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! Same-day service is often available depending on our schedule. Call or text us at (843) 555-0100 and we'll do our best to get there today.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What areas do you serve?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We serve all of Greater Charleston including the Charleston Peninsula, James Island, Johns Island, Mount Pleasant, Folly Beach, North Charleston, West Ashley, Daniel Island, Sullivan's Island, Isle of Palms, Kiawah Island, Hanahan, and Edisto Beach. Not sure if we cover your area? Just call!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What items do you NOT take?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>For safety and environmental reasons, we cannot haul hazardous waste, chemical drums, asbestos, oil/gas tanks, medical waste, or paint cans with liquid paint. Not sure about a specific item? Give us a call and we'll let you know!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I pay?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We accept cash, PayPal, Venmo, and check. Payment is due at the time of service — and we never charge you until you've approved the price.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Are you licensed and insured?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, Palmetto Haul Co. is a licensed and insured junk removal business operating in Charleston, SC. You can haul away with confidence.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do I need to be home for the pickup?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>In most cases, yes — we need someone present to approve the price before we begin. However, we can discuss specific arrangements if you have a unique situation. Just give us a call and we'll figure something out.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do I get a quote?
+          <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>The fastest way is to call or text us at (843) 555-0100. You can also fill out our online booking form and we'll get back to you within an hour during business hours (7am–8pm daily).</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -340,6 +572,40 @@
       <span class="pay-badge"><span>💙</span> PayPal</span>
       <span class="pay-badge"><span>💚</span> Venmo</span>
       <span class="pay-badge"><span>✉️</span> Check</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY LOCAL BEATS FRANCHISE ===================== -->
+<section class="why-local" aria-labelledby="why-local-heading">
+  <div class="container">
+    <div class="section-header" data-anim>
+      <h2 id="why-local-heading" style="color:var(--white);">Why Choose Palmetto Haul Over a Big Franchise?</h2>
+      <p style="color:rgba(255,255,255,.72);">Not all junk removal is equal. Here's what makes us different.</p>
+    </div>
+    <div class="why-local-grid">
+      <div class="why-col why-col-bad" data-anim>
+        <h3 class="why-col-header">Big Franchise Companies</h3>
+        <ul class="why-list">
+          <li><span class="why-x">&#10060;</span> Vague pricing, surprise fees on arrival</li>
+          <li><span class="why-x">&#10060;</span> Unknown subcontractors show up</li>
+          <li><span class="why-x">&#10060;</span> Slow response, long scheduling windows</li>
+          <li><span class="why-x">&#10060;</span> No knowledge of local neighborhoods</li>
+          <li><span class="why-x">&#10060;</span> Limited payment options</li>
+          <li><span class="why-x">&#10060;</span> Complaints go to a 1-800 number</li>
+        </ul>
+      </div>
+      <div class="why-col why-col-good" data-anim data-anim-delay="2">
+        <h3 class="why-col-header">Palmetto Haul Co. &#127807;</h3>
+        <ul class="why-list">
+          <li><span class="why-check">&#9989;</span> Upfront pricing, you approve before we start</li>
+          <li><span class="why-check">&#9989;</span> Hank &amp; Jacob personally show up, every time</li>
+          <li><span class="why-check">&#9989;</span> Fast response, same-day often available</li>
+          <li><span class="why-check">&#9989;</span> Grew up in the Lowcountry, know every street</li>
+          <li><span class="why-check">&#9989;</span> Cash, Venmo, PayPal, or check — your choice</li>
+          <li><span class="why-check">&#9989;</span> Issues? Call Hank directly on his cell</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -395,11 +661,11 @@
       <h4>Contact</h4>
       <div class="f-contact-item">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01z"/></svg>
-        <span>Hank: <a href="tel:+18435550100">(843) 555-0100</a></span>
+        <span>Hank: <a href="tel:+18435550100">(843) 555-0100</a> &bull; <a href="sms:+18435550100">Text</a></span>
       </div>
       <div class="f-contact-item">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01z"/></svg>
-        <span>Jacob: <a href="tel:+18435550101">(843) 555-0101</a></span>
+        <span>Jacob: <a href="tel:+18435550101">(843) 555-0101</a> &bull; <a href="sms:+18435550101">Text</a></span>
       </div>
       <div class="f-contact-item">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -418,8 +684,9 @@
 
 <!-- ===================== FLOATING CTA (MOBILE) ===================== -->
 <div class="floating-cta" aria-label="Quick contact buttons">
-  <a href="tel:+18435550100" class="btn btn-green">&#128222; Call Now</a>
-  <button class="btn btn-primary" data-modal="booking-modal">Book Pickup</button>
+  <a href="tel:+18435550100" class="btn btn-green">&#128222; Call</a>
+  <a href="sms:+18435550100" class="btn btn-outline">&#128241; Text</a>
+  <button class="btn btn-primary" data-modal="booking-modal">Book</button>
 </div>
 <div class="floating-cta-spacer"></div>
 
@@ -437,20 +704,20 @@
       <div class="form-row">
         <div class="form-group">
           <label for="b-name">Your Name *</label>
-          <input type="text" id="b-name" name="name" placeholder="Jane Smith" required>
+          <input type="text" id="b-name" name="name" placeholder="Jane Smith" required autocomplete="name">
         </div>
         <div class="form-group">
           <label for="b-phone">Phone Number *</label>
-          <input type="tel" id="b-phone" name="phone" placeholder="(843) 000-0000" required>
+          <input type="tel" id="b-phone" name="phone" placeholder="(843) 000-0000" required autocomplete="tel">
         </div>
       </div>
       <div class="form-group">
         <label for="b-email">Email Address</label>
-        <input type="email" id="b-email" name="email" placeholder="you@email.com">
+        <input type="email" id="b-email" name="email" placeholder="you@email.com" autocomplete="email">
       </div>
       <div class="form-group">
         <label for="b-address">Pickup Address *</label>
-        <input type="text" id="b-address" name="address" placeholder="123 Oak Street, Charleston, SC 29401" required>
+        <input type="text" id="b-address" name="address" placeholder="123 Oak Street, Charleston, SC 29401" required autocomplete="street-address">
       </div>
       <div class="form-row">
         <div class="form-group">
@@ -512,7 +779,7 @@
       </div>
       <div class="form-group">
         <label for="r-name">Your Name *</label>
-        <input type="text" id="r-name" name="name" placeholder="Jane S." required>
+        <input type="text" id="r-name" name="name" placeholder="Jane S." required autocomplete="name">
       </div>
       <div class="form-group">
         <label for="r-location">Your Neighborhood (optional)</label>
