@@ -65,91 +65,15 @@
 
     <!-- Filter Tabs -->
     <div style="display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:2rem;" data-anim>
-      <button onclick="filterGallery('all')" class="gallery-filter active" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:var(--blue);color:var(--white);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">All</button>
-      <button onclick="filterGallery('residential')" class="gallery-filter" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">Residential</button>
-      <button onclick="filterGallery('furniture')" class="gallery-filter" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">Furniture</button>
-      <button onclick="filterGallery('yard')" class="gallery-filter" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">Yard Debris</button>
-      <button onclick="filterGallery('commercial')" class="gallery-filter" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">Commercial</button>
+      <button class="gallery-filter" data-filter="all" onclick="filterGallery('all')" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:var(--blue);color:var(--white);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">All</button>
+      <button class="gallery-filter" data-filter="residential" onclick="filterGallery('residential')" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">Residential</button>
+      <button class="gallery-filter" data-filter="furniture" onclick="filterGallery('furniture')" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">Furniture</button>
+      <button class="gallery-filter" data-filter="yard" onclick="filterGallery('yard')" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">Yard Debris</button>
+      <button class="gallery-filter" data-filter="commercial" onclick="filterGallery('commercial')" style="padding:.55rem 1.2rem;border-radius:50px;border:1.5px solid var(--blue);background:transparent;color:var(--blue);font-family:var(--font-head);font-weight:700;font-size:.82rem;cursor:pointer;transition:all .2s;">Commercial</button>
     </div>
 
-    <div class="gallery-full-grid" id="gallery-grid">
-      <!-- Placeholder 1 -->
-      <div class="gallery-full-item" data-category="residential" data-anim>
-        <div class="gallery-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.8rem;font-family:var(--font-head);font-weight:600;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.38"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Residential Before
-        </div>
-        <div class="gallery-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> View</div>
-      </div>
-
-      <!-- Placeholder 2 -->
-      <div class="gallery-full-item" data-category="residential" data-anim data-anim-delay="1">
-        <div class="gallery-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.8rem;font-family:var(--font-head);font-weight:600;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.38"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Residential After
-        </div>
-        <div class="gallery-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> View</div>
-      </div>
-
-      <!-- Placeholder 3 -->
-      <div class="gallery-full-item" data-category="furniture" data-anim data-anim-delay="2">
-        <div class="gallery-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.8rem;font-family:var(--font-head);font-weight:600;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.38"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Furniture Pickup
-        </div>
-        <div class="gallery-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> View</div>
-      </div>
-
-      <!-- Placeholder 4 -->
-      <div class="gallery-full-item" data-category="yard" data-anim data-anim-delay="3">
-        <div class="gallery-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.8rem;font-family:var(--font-head);font-weight:600;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.38"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Yard Debris Before
-        </div>
-        <div class="gallery-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> View</div>
-      </div>
-
-      <!-- Placeholder 5 -->
-      <div class="gallery-full-item" data-category="yard" data-anim>
-        <div class="gallery-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.8rem;font-family:var(--font-head);font-weight:600;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.38"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Yard Debris After
-        </div>
-        <div class="gallery-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> View</div>
-      </div>
-
-      <!-- Placeholder 6 -->
-      <div class="gallery-full-item" data-category="commercial" data-anim data-anim-delay="1">
-        <div class="gallery-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.8rem;font-family:var(--font-head);font-weight:600;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.38"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Office Cleanout
-        </div>
-        <div class="gallery-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> View</div>
-      </div>
-
-      <!-- Placeholder 7 -->
-      <div class="gallery-full-item" data-category="residential" data-anim data-anim-delay="2">
-        <div class="gallery-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.8rem;font-family:var(--font-head);font-weight:600;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.38"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Garage Cleanout
-        </div>
-        <div class="gallery-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> View</div>
-      </div>
-
-      <!-- Placeholder 8 -->
-      <div class="gallery-full-item" data-category="furniture" data-anim data-anim-delay="3">
-        <div class="gallery-placeholder" style="width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--gray);font-size:.8rem;font-family:var(--font-head);font-weight:600;">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.38"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Appliance Removal
-        </div>
-        <div class="gallery-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg> View</div>
-      </div>
-    </div>
-
-    <!-- Empty state notice -->
-    <div style="text-align:center;padding:2rem 0;" data-anim>
-      <p style="color:var(--gray);font-size:.88rem;">📷 &nbsp;Photos from real jobs will appear here as work is completed. Check back soon!</p>
-    </div>
+    <!-- Gallery items injected by main.js from _data/gallery.json -->
+    <div class="gallery-full-grid" id="gallery-grid"></div>
 
   </div>
 </section>

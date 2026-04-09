@@ -1,0 +1,12 @@
+{
+  "business_name": "Palmetto Haul Co.",
+  "hank_phone": "(843) 555-0100",
+  "hank_phone_tel": "+18435550100",
+  "jacob_phone": "(843) 555-0101",
+  "jacob_phone_tel": "+18435550101",
+  "email": "hello@palmettohaul.com",
+  "instagram_url": "",
+  "facebook_url": "",
+  "formspree_endpoint": "",
+  "payment_methods": ["Cash", "PayPal", "Venmo", "Check"]
+}

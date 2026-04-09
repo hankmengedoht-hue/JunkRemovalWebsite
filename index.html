@@ -321,23 +321,8 @@
       <h2 id="testimonials-heading">What Our Customers Say</h2>
     </div>
 
-    <div class="testimonials-empty" data-anim>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      <p>Be the first to write a review!</p>
-      <button class="btn btn-primary" data-modal="review-modal">Leave a Review</button>
-    </div>
-
-    <!-- Testimonials will be added here as reviews come in -->
-    <!-- Example card (hidden initially):
-    <div class="testimonials-grid" style="display:none;">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="testimonial-text">"Quick, professional, and super affordable. Hank and Jacob came out the same day I called!"</p>
-        <div class="testimonial-author">Sarah M.</div>
-        <div class="testimonial-loc">James Island, SC</div>
-      </div>
-    </div>
-    -->
+    <!-- Reviews injected by main.js from _data/reviews.json -->
+    <div id="reviews-container" data-anim></div>
 
     <div class="section-cta" style="margin-top:1.5rem;" data-anim>
       <button class="btn btn-outline" data-modal="review-modal">Leave a Review</button>

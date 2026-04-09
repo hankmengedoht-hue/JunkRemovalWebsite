@@ -1,0 +1,137 @@
+backend:
+  name: github
+  repo: hankmengedoht-hue/JunkRemovalWebsite
+  branch: main
+  base_url: https://cms-auth.hankmengedoht.workers.dev
+  squash_merges: true
+  commit_messages:
+    create: 'Add {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload "{{path}}"'
+    deleteMedia: 'Delete "{{path}}"'
+
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+site_url: https://hankmengedoht-hue.github.io/JunkRemovalWebsite
+
+collections:
+
+  # ─────────────────────────────────────────
+  # GALLERY — Before & After Photos
+  # ─────────────────────────────────────────
+  - name: "gallery"
+    label: "Gallery Photos"
+    label_singular: "Photo"
+    description: "Before & after job photos shown in the Gallery page."
+    file: "_data/gallery.json"
+    fields:
+      - name: "photos"
+        label: "Photos"
+        widget: "list"
+        label_singular: "Photo"
+        summary: "{{fields.caption}}"
+        fields:
+          - { label: "Photo", name: "image", widget: "image" }
+          - { label: "Caption", name: "caption", widget: "string", required: false, hint: "Short label e.g. 'Garage cleanout — West Ashley'" }
+          - { label: "Alt Text (SEO)", name: "alt", widget: "string", required: false, hint: "Describe the photo for Google e.g. 'Before and after garage junk removal James Island SC'" }
+          - label: "Category"
+            name: "category"
+            widget: "select"
+            options:
+              - { label: "Residential", value: "residential" }
+              - { label: "Furniture & Appliances", value: "furniture" }
+              - { label: "Yard Debris", value: "yard" }
+              - { label: "Commercial", value: "commercial" }
+              - { label: "Construction Debris", value: "construction" }
+            required: false
+          - { label: "Published", name: "published", widget: "boolean", default: true }
+
+  # ─────────────────────────────────────────
+  # REVIEWS / TESTIMONIALS
+  # ─────────────────────────────────────────
+  - name: "reviews"
+    label: "Reviews & Testimonials"
+    label_singular: "Review"
+    description: "Customer reviews shown on the home page."
+    file: "_data/reviews.json"
+    fields:
+      - name: "reviews"
+        label: "Reviews"
+        widget: "list"
+        label_singular: "Review"
+        summary: "{{fields.name}} — {{fields.rating}} stars"
+        fields:
+          - { label: "Customer Name", name: "name", widget: "string", hint: "First name and last initial is fine e.g. Sarah M." }
+          - { label: "Location", name: "location", widget: "string", required: false, hint: "e.g. James Island, SC" }
+          - label: "Star Rating"
+            name: "rating"
+            widget: "select"
+            options:
+              - { label: "★★★★★  5 stars", value: 5 }
+              - { label: "★★★★   4 stars", value: 4 }
+              - { label: "★★★    3 stars", value: 3 }
+              - { label: "★★     2 stars", value: 2 }
+              - { label: "★      1 star",  value: 1 }
+            default: 5
+          - { label: "Review", name: "body", widget: "text" }
+          - { label: "Published", name: "published", widget: "boolean", default: true }
+
+  # ─────────────────────────────────────────
+  # SITE SETTINGS
+  # ─────────────────────────────────────────
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Contact & Business Info"
+        name: "contact-info"
+        file: "_data/settings.json"
+        fields:
+          - { label: "Business Name", name: "business_name", widget: "string" }
+          - { label: "Hank's Phone", name: "hank_phone", widget: "string", hint: "e.g. (843) 555-0100" }
+          - { label: "Hank's Phone (tel: link)", name: "hank_phone_tel", widget: "string", hint: "e.g. +18435550100 — used for call buttons" }
+          - { label: "Jacob's Phone", name: "jacob_phone", widget: "string", hint: "e.g. (843) 555-0101" }
+          - { label: "Jacob's Phone (tel: link)", name: "jacob_phone_tel", widget: "string", hint: "e.g. +18435550101" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full URL e.g. https://instagram.com/palmettohaul" }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false, hint: "Full URL e.g. https://facebook.com/palmettohaul" }
+          - { label: "Formspree Endpoint", name: "formspree_endpoint", widget: "string", required: false, hint: "Paste your Formspree form URL e.g. https://formspree.io/f/xabcdef" }
+          - label: "Accepted Payment Methods"
+            name: "payment_methods"
+            widget: "list"
+            default: ["Cash", "PayPal", "Venmo", "Check"]
+            field: { label: "Payment Method", name: "method", widget: "string" }
+
+  # ─────────────────────────────────────────
+  # TEAM PHOTOS
+  # ─────────────────────────────────────────
+  - name: "team"
+    label: "Team Photos"
+    files:
+      - label: "Team Photos"
+        name: "team-photos"
+        file: "_data/team.json"
+        fields:
+          - { label: "Hank's Photo", name: "hank_photo", widget: "image", required: false }
+          - { label: "Hank's Bio", name: "hank_bio", widget: "text", required: false }
+          - { label: "Jacob's Photo", name: "jacob_photo", widget: "image", required: false }
+          - { label: "Jacob's Bio", name: "jacob_bio", widget: "text", required: false }
+          - { label: "Both Together Photo", name: "team_photo", widget: "image", required: false }
+
+  # ─────────────────────────────────────────
+  # HOME PAGE CONTENT
+  # ─────────────────────────────────────────
+  - name: "pages"
+    label: "Page Content"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "_data/pages/home.json"
+        fields:
+          - { label: "Hero Headline", name: "hero_headline", widget: "string" }
+          - { label: "Hero Subheadline", name: "hero_sub", widget: "text" }
+          - { label: "About Snapshot — Headline", name: "about_headline", widget: "string" }
+          - { label: "About Snapshot — Text", name: "about_text", widget: "text" }
+          - { label: "CTA Banner Headline", name: "cta_headline", widget: "string" }
+          - { label: "CTA Banner Subtext", name: "cta_sub", widget: "text" }
