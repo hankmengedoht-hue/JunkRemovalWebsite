@@ -23,60 +23,64 @@ collections:
   # ─────────────────────────────────────────
   - name: "gallery"
     label: "Gallery Photos"
-    label_singular: "Photo"
     description: "Before & after job photos shown in the Gallery page."
-    file: "_data/gallery.json"
-    fields:
-      - name: "photos"
-        label: "Photos"
-        widget: "list"
-        label_singular: "Photo"
-        summary: "{{fields.caption}}"
+    files:
+      - label: "Gallery Photos"
+        name: "gallery-photos"
+        file: "_data/gallery.json"
         fields:
-          - { label: "Photo", name: "image", widget: "image" }
-          - { label: "Caption", name: "caption", widget: "string", required: false, hint: "Short label e.g. 'Garage cleanout — West Ashley'" }
-          - { label: "Alt Text (SEO)", name: "alt", widget: "string", required: false, hint: "Describe the photo for Google e.g. 'Before and after garage junk removal James Island SC'" }
-          - label: "Category"
-            name: "category"
-            widget: "select"
-            options:
-              - { label: "Residential", value: "residential" }
-              - { label: "Furniture & Appliances", value: "furniture" }
-              - { label: "Yard Debris", value: "yard" }
-              - { label: "Commercial", value: "commercial" }
-              - { label: "Construction Debris", value: "construction" }
-            required: false
-          - { label: "Published", name: "published", widget: "boolean", default: true }
+          - name: "photos"
+            label: "Photos"
+            widget: "list"
+            label_singular: "Photo"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Caption", name: "caption", widget: "string", required: false, hint: "Short label e.g. 'Garage cleanout — West Ashley'" }
+              - { label: "Alt Text (SEO)", name: "alt", widget: "string", required: false, hint: "Describe the photo for Google e.g. 'Before and after garage junk removal James Island SC'" }
+              - label: "Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Residential", value: "residential" }
+                  - { label: "Furniture & Appliances", value: "furniture" }
+                  - { label: "Yard Debris", value: "yard" }
+                  - { label: "Commercial", value: "commercial" }
+                  - { label: "Construction Debris", value: "construction" }
+                required: false
+              - { label: "Published", name: "published", widget: "boolean", default: true }
 
   # ─────────────────────────────────────────
   # REVIEWS / TESTIMONIALS
   # ─────────────────────────────────────────
   - name: "reviews"
     label: "Reviews & Testimonials"
-    label_singular: "Review"
     description: "Customer reviews shown on the home page."
-    file: "_data/reviews.json"
-    fields:
-      - name: "reviews"
-        label: "Reviews"
-        widget: "list"
-        label_singular: "Review"
-        summary: "{{fields.name}} — {{fields.rating}} stars"
+    files:
+      - label: "Reviews"
+        name: "reviews-list"
+        file: "_data/reviews.json"
         fields:
-          - { label: "Customer Name", name: "name", widget: "string", hint: "First name and last initial is fine e.g. Sarah M." }
-          - { label: "Location", name: "location", widget: "string", required: false, hint: "e.g. James Island, SC" }
-          - label: "Star Rating"
-            name: "rating"
-            widget: "select"
-            options:
-              - { label: "★★★★★  5 stars", value: 5 }
-              - { label: "★★★★   4 stars", value: 4 }
-              - { label: "★★★    3 stars", value: 3 }
-              - { label: "★★     2 stars", value: 2 }
-              - { label: "★      1 star",  value: 1 }
-            default: 5
-          - { label: "Review", name: "body", widget: "text" }
-          - { label: "Published", name: "published", widget: "boolean", default: true }
+          - name: "reviews"
+            label: "Reviews"
+            widget: "list"
+            label_singular: "Review"
+            summary: "{{fields.name}} — {{fields.rating}} stars"
+            fields:
+              - { label: "Customer Name", name: "name", widget: "string", hint: "First name and last initial is fine e.g. Sarah M." }
+              - { label: "Location", name: "location", widget: "string", required: false, hint: "e.g. James Island, SC" }
+              - label: "Star Rating"
+                name: "rating"
+                widget: "select"
+                options:
+                  - { label: "★★★★★  5 stars", value: 5 }
+                  - { label: "★★★★   4 stars", value: 4 }
+                  - { label: "★★★    3 stars", value: 3 }
+                  - { label: "★★     2 stars", value: 2 }
+                  - { label: "★      1 star",  value: 1 }
+                default: 5
+              - { label: "Review", name: "body", widget: "text" }
+              - { label: "Published", name: "published", widget: "boolean", default: true }
 
   # ─────────────────────────────────────────
   # SITE SETTINGS
