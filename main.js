@@ -428,11 +428,40 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>`;
   }
 
+  /* ---- Team Photo Loading ---- */
+  async function loadTeam() {
+    try {
+      const res = await fetch('_data/team.json');
+      const data = await res.json();
+
+      const setPhoto = (id, src, name) => {
+        const el = document.getElementById(id);
+        if (!el || !src) return;
+        el.innerHTML = `<img src="${src}" alt="${name}" style="width:100%;height:100%;object-fit:cover;">`;
+      };
+
+      const setBio = (id, text) => {
+        const el = document.getElementById(id);
+        if (!el || !text) return;
+        el.textContent = text;
+      };
+
+      setPhoto('hank-photo',  data.hank_photo,  'Hank');
+      setPhoto('jacob-photo', data.jacob_photo, 'Jacob');
+      setPhoto('team-photo',  data.team_photo,  'Hank and Jacob');
+      setBio('hank-bio',  data.hank_bio);
+      setBio('jacob-bio', data.jacob_bio);
+    } catch {
+      // silently keep placeholders if fetch fails
+    }
+  }
+
   /* ---- Init ---- */
   initScrollAnimations();
   loadGallery();
   loadReviews();
   loadHomeGallery();
+  loadTeam();
   bindLightboxItems();
 
 });
