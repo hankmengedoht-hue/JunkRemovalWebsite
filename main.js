@@ -475,6 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
         heroBg.style.backgroundImage = `url('${path}')`;
         heroBg.style.backgroundSize = 'cover';
         heroBg.style.backgroundPosition = 'center';
+        heroBg.style.opacity = '0.35';
       }
     } catch {
       // silently keep default CSS background
