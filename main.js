@@ -4,7 +4,7 @@
 
 // ─── Formspree endpoint — replace with your real ID after signing up at formspree.io ───
 // Get yours at: https://formspree.io → New Form → copy the endpoint URL
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+let FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -232,8 +232,8 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = `
           <div class="testimonials-empty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            <p>Be the first to write a review!</p>
-            <button class="btn btn-primary" data-modal="review-modal">Leave a Review</button>
+            <p>We just launched — reviews coming soon! If you've used our service, we'd love to hear from you.</p>
+            <button class="btn btn-primary" data-modal="review-modal">Be the First to Review</button>
           </div>`;
         // Re-bind modal trigger for newly injected button
         container.querySelector('[data-modal]')?.addEventListener('click', (e) => {
@@ -347,24 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
   btt.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 
-  /* ---- FAQ Accordion (#12) ---- */
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const isOpen = btn.getAttribute('aria-expanded') === 'true';
-      // Close all
-      document.querySelectorAll('.faq-question').forEach(b => {
-        b.setAttribute('aria-expanded', 'false');
-        b.nextElementSibling?.classList.remove('open');
-      });
-      // Open clicked (toggle)
-      if (!isOpen) {
-        btn.setAttribute('aria-expanded', 'true');
-        btn.nextElementSibling?.classList.add('open');
-      }
-    });
-  });
-
-  /* ---- Home Gallery Preview Loading (#14 + #22 skeleton) ---- */
+  /* ---- Home Gallery Preview Loading ---- */
   async function loadHomeGallery() {
     const homeGrid = document.getElementById('home-gallery-grid');
     if (!homeGrid) return;
@@ -472,6 +455,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ---- Settings Loader (phones, email, social, Formspree) ---- */
+  async function loadSettings() {
+    try {
+      const res = await fetch('_data/settings.json', { cache: 'no-cache' });
+      const s = await res.json();
+
+      // Formspree endpoint
+      if (s.formspree_endpoint) FORMSPREE_ENDPOINT = s.formspree_endpoint;
+
+      // Hank's phone — update hrefs and visible number text
+      if (s.hank_phone_tel) {
+        document.querySelectorAll('a[href="tel:+18435550100"]').forEach(a => {
+          a.href = `tel:${s.hank_phone_tel}`;
+          if (s.hank_phone && a.textContent.trim() === '(843) 555-0100') a.textContent = s.hank_phone;
+        });
+        document.querySelectorAll('a[href="sms:+18435550100"]').forEach(a => {
+          a.href = `sms:${s.hank_phone_tel}`;
+        });
+        if (s.hank_phone) document.querySelectorAll('[data-hank-phone]').forEach(el => { el.textContent = s.hank_phone; });
+      }
+
+      // Jacob's phone
+      if (s.jacob_phone_tel) {
+        document.querySelectorAll('a[href="tel:+18435550101"]').forEach(a => {
+          a.href = `tel:${s.jacob_phone_tel}`;
+          if (s.jacob_phone && a.textContent.trim() === '(843) 555-0101') a.textContent = s.jacob_phone;
+        });
+        document.querySelectorAll('a[href="sms:+18435550101"]').forEach(a => {
+          a.href = `sms:${s.jacob_phone_tel}`;
+        });
+        if (s.jacob_phone) document.querySelectorAll('[data-jacob-phone]').forEach(el => { el.textContent = s.jacob_phone; });
+      }
+
+      // Email
+      if (s.email) {
+        document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
+          a.href = `mailto:${s.email}`;
+          if (a.textContent.includes('@')) a.textContent = s.email;
+        });
+      }
+
+      // Social links — set real URL or hide if empty
+      document.querySelectorAll('a[aria-label*="Instagram"]').forEach(a => {
+        if (s.instagram_url) a.href = s.instagram_url; else a.style.display = 'none';
+      });
+      document.querySelectorAll('a[aria-label*="Facebook"]').forEach(a => {
+        if (s.facebook_url) a.href = s.facebook_url; else a.style.display = 'none';
+      });
+
+      // Payment methods section
+      const pmList = document.getElementById('payment-methods-list');
+      if (pmList && s.payment_methods?.length) {
+        const icons = { Cash: '💵', PayPal: '💙', Venmo: '💚', Check: '✉️', Zelle: '💛', Card: '💳' };
+        pmList.innerHTML = s.payment_methods.map(m =>
+          `<span class="pay-badge"><span>${icons[m] || '💰'}</span> ${m}</span>`
+        ).join('');
+      }
+
+    } catch {
+      // silently keep defaults
+    }
+  }
+
   /* ---- Homepage Background Image ---- */
   async function loadHomepageBg() {
     const hero = document.querySelector('.hero');
@@ -496,6 +542,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- Init ---- */
+  loadSettings();
   initScrollAnimations();
   loadGallery();
   loadReviews();
