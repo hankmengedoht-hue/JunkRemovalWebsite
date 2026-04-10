@@ -467,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero = document.querySelector('.hero');
     if (!hero) return;
     try {
-      const res = await fetch('_data/homepage-bg.json');
+      const res = await fetch('_data/homepage-bg.json', { cache: 'no-cache' });
       const data = await res.json();
       const normPath = (p) => p ? p.replace(/^\//, '') : '';
       const path = normPath(data.image);
@@ -475,6 +475,10 @@ document.addEventListener('DOMContentLoaded', () => {
         hero.style.backgroundImage = `linear-gradient(145deg, rgba(14,77,146,0.72) 0%, rgba(14,77,146,0.55) 100%), url('${path}')`;
         hero.style.backgroundSize = 'auto, cover';
         hero.style.backgroundPosition = 'auto, center';
+      } else {
+        hero.style.backgroundImage = '';
+        hero.style.backgroundSize = '';
+        hero.style.backgroundPosition = '';
       }
     } catch {
       // silently keep default CSS background
