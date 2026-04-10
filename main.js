@@ -455,9 +455,18 @@ document.addEventListener('DOMContentLoaded', () => {
       setPhoto('hank-photo',  data.hank_photo,  'Hank');
       setPhoto('jacob-photo', data.jacob_photo, 'Jacob');
       setPhoto('team-photo',  data.team_photo,  'Hank and Jacob');
-      setPhoto('home-team-photo', data.team_photo || data.hank_photo, 'Hank and Jacob');
       setBio('hank-bio',  data.hank_bio);
       setBio('jacob-bio', data.jacob_bio);
+
+      // Home page team photo (dedicated img tag, not a placeholder div)
+      const homeImg = document.getElementById('home-team-photo');
+      const homePlaceholder = document.getElementById('home-team-placeholder');
+      const homeSrc = normPath(data.team_photo || data.hank_photo);
+      if (homeImg && homeSrc) {
+        homeImg.src = homeSrc;
+        homeImg.style.display = 'block';
+        if (homePlaceholder) homePlaceholder.style.display = 'none';
+      }
     } catch {
       // silently keep placeholders if fetch fails
     }
