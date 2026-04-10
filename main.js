@@ -199,9 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const normPath = (p) => p ? p.replace(/^\//, '') : '';
       grid.innerHTML = photos.map((photo, i) => `
         <div class="gallery-full-item" data-category="${photo.category || 'all'}" data-anim data-anim-delay="${(i % 4) + 1}">
-          <img src="${photo.image}" alt="${photo.alt || photo.caption || 'Junk removal job in Charleston SC'}" loading="lazy">
+          <img src="${normPath(photo.image)}" alt="${photo.alt || photo.caption || 'Junk removal job in Charleston SC'}" loading="lazy">
           <div class="gallery-overlay">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
             ${photo.caption || 'View'}
@@ -390,9 +391,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const normPath = (p) => p ? p.replace(/^\//, '') : '';
       homeGrid.innerHTML = photos.map((photo, i) => `
         <div class="gallery-item" data-anim data-anim-delay="${i + 1}">
-          <img src="${photo.image}" alt="${photo.alt || photo.caption || 'Junk removal job in Charleston SC'}" loading="lazy">
+          <img src="${normPath(photo.image)}" alt="${photo.alt || photo.caption || 'Junk removal job in Charleston SC'}" loading="lazy">
         </div>`).join('');
 
       initScrollAnimations();
@@ -434,10 +436,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const res = await fetch('_data/team.json');
       const data = await res.json();
 
+      // CMS saves paths with a leading slash; strip it so they resolve correctly on GitHub Pages
+      const normPath = (p) => p ? p.replace(/^\//, '') : '';
+
       const setPhoto = (id, src, name) => {
         const el = document.getElementById(id);
-        if (!el || !src) return;
-        el.innerHTML = `<img src="${src}" alt="${name}" style="width:100%;height:100%;object-fit:cover;">`;
+        const path = normPath(src);
+        if (!el || !path) return;
+        el.innerHTML = `<img src="${path}" alt="${name}" style="width:100%;height:100%;object-fit:cover;">`;
       };
 
       const setBio = (id, text) => {
@@ -456,12 +462,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ---- Homepage Background Image ---- */
+  async function loadHomepageBg() {
+    const heroBg = document.querySelector('.hero-bg');
+    if (!heroBg) return;
+    try {
+      const res = await fetch('_data/homepage-bg.json');
+      const data = await res.json();
+      const normPath = (p) => p ? p.replace(/^\//, '') : '';
+      const path = normPath(data.image);
+      if (path) {
+        heroBg.style.backgroundImage = `url('${path}')`;
+        heroBg.style.backgroundSize = 'cover';
+        heroBg.style.backgroundPosition = 'center';
+      }
+    } catch {
+      // silently keep default CSS background
+    }
+  }
+
   /* ---- Init ---- */
   initScrollAnimations();
   loadGallery();
   loadReviews();
   loadHomeGallery();
   loadTeam();
+  loadHomepageBg();
   bindLightboxItems();
 
 });

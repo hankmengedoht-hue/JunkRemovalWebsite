@@ -124,6 +124,19 @@ collections:
           - { label: "Both Together Photo", name: "team_photo", widget: "image", required: false }
 
   # ─────────────────────────────────────────
+  # HOMEPAGE BACKGROUND
+  # ─────────────────────────────────────────
+  - name: "homepage-bg"
+    label: "Homepage Background"
+    description: "Upload a photo to use as the hero background on the home page."
+    files:
+      - label: "Homepage Background"
+        name: "homepage-bg-image"
+        file: "_data/homepage-bg.json"
+        fields:
+          - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Recommended: wide landscape photo, at least 1600px wide." }
+
+  # ─────────────────────────────────────────
   # HOME PAGE CONTENT
   # ─────────────────────────────────────────
   - name: "pages"
