@@ -455,6 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setPhoto('hank-photo',  data.hank_photo,  'Hank');
       setPhoto('jacob-photo', data.jacob_photo, 'Jacob');
       setPhoto('team-photo',  data.team_photo,  'Hank and Jacob');
+      setPhoto('home-team-photo', data.team_photo || data.hank_photo, 'Hank and Jacob');
       setBio('hank-bio',  data.hank_bio);
       setBio('jacob-bio', data.jacob_bio);
     } catch {
