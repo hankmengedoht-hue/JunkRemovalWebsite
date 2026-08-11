@@ -548,6 +548,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ---- Homepage Lifestyle Section Image ---- */
+  async function loadLifestyleBg() {
+    const img = document.getElementById('lifestyle-img');
+    const placeholder = document.getElementById('lifestyle-placeholder');
+    if (!img) return;
+    try {
+      const res = await fetch('_data/homepage-lifestyle.json', { cache: 'no-cache' });
+      const data = await res.json();
+      const normPath = (p) => p ? p.replace(/^\//, '') : '';
+      const path = normPath(data.image);
+      if (path) {
+        img.src = path;
+        img.style.display = 'block';
+        if (placeholder) placeholder.style.display = 'none';
+      } else {
+        img.style.display = 'none';
+        if (placeholder) placeholder.style.display = 'flex';
+      }
+    } catch {
+      // silently keep placeholder
+    }
+  }
+
   /* ---- FAQ Accordion ---- */
   function initFaqAccordion() {
     document.querySelectorAll('.faq-card').forEach(card => {
@@ -569,6 +592,7 @@ document.addEventListener('DOMContentLoaded', () => {
   loadHomeGallery();
   loadTeam();
   loadHomepageBg();
+  loadLifestyleBg();
   bindLightboxItems();
   initFaqAccordion();
 

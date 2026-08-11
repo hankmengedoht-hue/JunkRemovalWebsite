@@ -221,7 +221,13 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   margin-bottom: 2.25rem; font-weight: 300;
   max-width: 520px;
 }
-.hero-cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 2.5rem; }
+.hero-hassle-line {
+  font-style: italic; color: rgba(255,255,255,.55);
+  font-size: .88rem; margin: -1.25rem 0 1.75rem; max-width: 480px;
+}
+.hero-cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 1.25rem; }
+.hero-cta-note { font-size: .85rem; color: rgba(255,255,255,.6); margin-bottom: 2.25rem; }
+.hero-cta-note a { color: var(--green); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 .hero-trust { display: flex; flex-wrap: wrap; gap: 1.25rem; }
 .trust-pill {
   display: flex; align-items: center; gap: .5rem;
@@ -310,6 +316,77 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 @media (min-width: 768px) {
   .about-grid { grid-template-columns: 1fr 1fr; }
 }
+
+/* === Emotional Hook === */
+.emotional-hook {
+  padding: 5.5rem 1.25rem; background: var(--white);
+  text-align: center;
+}
+.emotional-hook-inner { max-width: 700px; margin: 0 auto; }
+.emotional-hook-divider {
+  width: 46px; height: 2px; background: var(--green);
+  margin: 0 auto 1.75rem;
+}
+.emotional-hook h2 {
+  color: var(--blue); margin-bottom: 1.25rem;
+}
+.emotional-hook p {
+  font-size: 1.1rem; line-height: 1.8;
+}
+.emotional-hook .lead {
+  font-family: var(--font-serif); font-size: 1.3rem;
+  color: var(--text-dark); font-style: italic; margin-bottom: 1rem;
+}
+
+/* === White Glove Benefits === */
+.white-glove { padding: var(--section-pad); background: var(--off-white); }
+.white-glove-grid {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+  max-width: 980px; margin: 0 auto;
+}
+.white-glove-item { text-align: center; padding: 0 1rem; }
+.white-glove-icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--white); border: 1.5px solid rgba(198,161,91,.5);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.1rem; box-shadow: var(--shadow);
+  color: var(--green-dark);
+}
+.white-glove-icon svg { width: 24px; height: 24px; }
+.white-glove-item h3 { margin-bottom: .5rem; color: var(--blue); font-size: 1.05rem; }
+.white-glove-item p { font-size: .88rem; }
+@media (min-width: 640px) { .white-glove-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .white-glove-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* === Immersive Lifestyle Section === */
+.lifestyle-section {
+  position: relative; min-height: 62vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; overflow: hidden; background: var(--blue-dark);
+}
+.lifestyle-section img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+}
+.lifestyle-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(180deg, rgba(11,36,24,.55) 0%, rgba(11,36,24,.72) 100%);
+}
+.lifestyle-content {
+  position: relative; z-index: 3; max-width: 640px; padding: 2rem 1.5rem;
+}
+.lifestyle-content p {
+  font-family: var(--font-serif); font-style: italic;
+  color: var(--white); font-size: clamp(1.4rem, 3.5vw, 2.1rem);
+  line-height: 1.5;
+}
+.lifestyle-placeholder {
+  position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
+  z-index: 3; display: flex; align-items: center; gap: .5rem;
+  color: rgba(255,255,255,.35); font-family: var(--font-head); font-weight: 700; font-size: .78rem;
+  text-align: center; white-space: nowrap;
+}
+.lifestyle-placeholder svg { width: 20px; height: 20px; opacity: .6; flex-shrink: 0; }
 
 /* === Services Snapshot === */
 .services-snapshot { padding: var(--section-pad); background: var(--white); }

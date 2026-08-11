@@ -136,6 +136,19 @@ collections:
           - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Recommended: wide landscape photo, at least 1600px wide." }
 
   # ─────────────────────────────────────────
+  # HOMEPAGE LIFESTYLE SECTION
+  # ─────────────────────────────────────────
+  - name: "homepage-lifestyle"
+    label: "Homepage Lifestyle Photo"
+    description: "Full-width immersive photo for the homepage's lifestyle section (a decorated tree in a warm Charleston living room works well)."
+    files:
+      - label: "Homepage Lifestyle Photo"
+        name: "homepage-lifestyle-image"
+        file: "_data/homepage-lifestyle.json"
+        fields:
+          - { label: "Lifestyle Image", name: "image", widget: "image", required: false, hint: "Recommended: wide, warm-toned photo, at least 1800px wide." }
+
+  # ─────────────────────────────────────────
   # HOME PAGE CONTENT
   # ─────────────────────────────────────────
   - name: "pages"
@@ -147,7 +160,7 @@ collections:
         fields:
           - { label: "Hero Headline", name: "hero_headline", widget: "string" }
           - { label: "Hero Subheadline", name: "hero_sub", widget: "text" }
-          - { label: "About Snapshot — Headline", name: "about_headline", widget: "string" }
-          - { label: "About Snapshot — Text", name: "about_text", widget: "text" }
+          - { label: "About Snapshot: Headline", name: "about_headline", widget: "string" }
+          - { label: "About Snapshot: Text", name: "about_text", widget: "text" }
           - { label: "CTA Banner Headline", name: "cta_headline", widget: "string" }
           - { label: "CTA Banner Subtext", name: "cta_sub", widget: "text" }
