@@ -406,8 +406,56 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 }
 .service-card h3 { font-size: 1.05rem; color: var(--text-dark); }
 .service-card p  { font-size: .88rem; color: var(--text-mid); flex: 1; }
+.service-price {
+  font-family: var(--font-head); font-weight: 800; font-size: .95rem;
+  color: var(--green-dark); padding-top: .4rem; border-top: 1px solid rgba(198,161,91,.3);
+}
+.service-price small { display: block; font-weight: 500; font-size: .72rem; color: var(--text-light); margin-top: .1rem; }
 
 .section-cta { text-align: center; margin-top: 2.5rem; }
+.section-cta-row { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 2.5rem; }
+
+/* === Pricing Tables (Services Page) === */
+.pricing-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
+.pricing-card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 2rem; box-shadow: var(--shadow);
+  border: 1.5px solid rgba(198,161,91,.3);
+}
+.pricing-card.featured { border: 2px solid var(--green); box-shadow: var(--shadow-lg); }
+.pricing-card h3 { color: var(--blue); margin-bottom: .3rem; }
+.pricing-card .pricing-sub { font-size: .85rem; color: var(--text-light); margin-bottom: 1.25rem; }
+.price-table { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.25rem; }
+.price-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .55rem .85rem; border-radius: var(--radius-sm);
+  background: var(--off-white); font-family: var(--font-head); font-size: .88rem;
+}
+.price-row .height { color: var(--text-dark); font-weight: 600; }
+.price-row .amount { color: var(--blue); font-weight: 800; }
+.pricing-card.featured .price-row { background: var(--green-xlight); }
+.pricing-card.featured .price-row .amount { color: var(--green-dark); }
+.pricing-includes { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.5rem; font-size: .85rem; color: var(--text-mid); }
+.pricing-includes span { color: var(--green-dark); font-weight: 700; margin-right: .4rem; }
+@media (min-width: 1024px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* === Booking Modal Price Summary === */
+.price-summary {
+  background: var(--off-white); border: 1.5px solid rgba(198,161,91,.4);
+  border-radius: var(--radius); padding: 1.1rem 1.25rem; margin: -.5rem 0 1.25rem;
+}
+.price-summary h4 {
+  font-family: var(--font-head); font-size: .8rem; font-weight: 700;
+  color: var(--blue); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .65rem;
+}
+.price-summary .price-row { background: transparent; padding: .3rem 0; font-size: .87rem; }
+.price-summary .price-row.savings .amount { color: var(--burgundy); }
+.price-summary .price-total {
+  display: flex; justify-content: space-between; align-items: center;
+  border-top: 1.5px solid rgba(198,161,91,.4); margin-top: .4rem; padding-top: .6rem;
+  font-family: var(--font-head); font-weight: 800; color: var(--blue); font-size: 1.05rem;
+}
+.price-summary .price-note { font-size: .72rem; color: var(--text-light); margin-top: .5rem; }
 
 @media (min-width: 600px)  { .services-grid { grid-template-columns: repeat(2,1fr); } }
 @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3,1fr); } }

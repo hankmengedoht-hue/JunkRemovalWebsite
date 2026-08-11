@@ -297,20 +297,24 @@
         <div class="service-icon" style="background:#faf5e8;">🎄</div>
         <h3>Christmas Tree Delivery &amp; Setup</h3>
         <p>Your tree arrives at your door, ready for Christmas. We bring it inside, secure it in the stand, level it, water it, and clean up before we leave.</p>
+        <div class="service-price">From $149<small>Pricing varies by tree height</small></div>
       </a>
       <a href="services.html#removal" class="service-card" data-anim data-anim-delay="2">
         <div class="service-icon" style="background:#f3e1e3;">🧹</div>
         <h3>End-of-Season Removal</h3>
         <p>When Christmas is over, we'll quietly take it away, water, stand, needles, and all. Every tree is composted locally here in Charleston, never a landfill.</p>
+        <div class="service-price">From $99<small>Pricing varies by tree height</small></div>
       </a>
       <a href="services.html#bundle" class="service-card" data-anim data-anim-delay="3">
         <div class="service-icon" style="background:#e3ece5;">🎁</div>
         <h3>Complete Christmas Service</h3>
         <p>Save when you bundle delivery and disposal services into one simple booking.</p>
+        <div class="service-price">From $219<small>Pricing varies by tree height, best value</small></div>
       </a>
     </div>
 
-    <div class="section-cta" data-anim>
+    <div class="section-cta-row" data-anim>
+      <a href="services.html#pricing" class="btn btn-primary">See Pricing &amp; Services</a>
       <a href="services.html" class="btn btn-outline">View All Services</a>
     </div>
   </div>
@@ -416,7 +420,8 @@
         <div style="display:flex;gap:.6rem;align-items:center;"><span style="color:var(--green-dark);font-weight:700;">&#10003;</span> Every tree composted locally, never landfilled</div>
         <div style="display:flex;gap:.6rem;align-items:center;"><span style="color:var(--green-dark);font-weight:700;">&#10003;</span> Final cleanup after removal</div>
       </div>
-      <p style="font-family:var(--font-head);font-weight:700;color:var(--blue);margin-bottom:1.5rem;">Pricing available when you request a quote. Bundling always costs less than booking separately.</p>
+      <p style="font-family:var(--font-head);font-weight:700;color:var(--blue);margin-bottom:.35rem;">7–8 ft trees: $289 &bull; our most popular size</p>
+      <p style="font-size:.85rem;color:var(--text-light);margin-bottom:1.5rem;">Pricing varies by tree height. <a href="services.html#pricing" style="color:var(--green-dark);font-weight:700;">See the full price list &rarr;</a></p>
       <button class="btn btn-primary btn-lg" data-modal="booking-modal">Book the Complete Service</button>
     </div>
   </div>
@@ -430,16 +435,17 @@
       <h2 id="tree-selection-heading">Your Tree, Your Way</h2>
       <p>Choose the size that fits your home, or tell us exactly what you're looking for. We'll take care of the rest.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.75rem;max-width:640px;margin:0 auto 2rem;" data-anim>
-      <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:1rem;text-align:center;font-family:var(--font-head);font-weight:700;color:var(--blue);">Under 6 ft</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.75rem;max-width:640px;margin:0 auto 1rem;" data-anim>
+      <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:1rem;text-align:center;font-family:var(--font-head);font-weight:700;color:var(--blue);">Up to 6 ft</div>
       <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:1rem;text-align:center;font-family:var(--font-head);font-weight:700;color:var(--blue);">6–7 ft</div>
       <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:1rem;text-align:center;font-family:var(--font-head);font-weight:700;color:var(--blue);">7–8 ft</div>
       <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:1rem;text-align:center;font-family:var(--font-head);font-weight:700;color:var(--blue);">8–9 ft</div>
-      <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:1rem;text-align:center;font-family:var(--font-head);font-weight:700;color:var(--blue);">9 ft+</div>
+      <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:1rem;text-align:center;font-family:var(--font-head);font-weight:700;color:var(--blue);">9–10 ft</div>
     </div>
+    <p style="text-align:center;margin-bottom:2rem;"><a href="services.html#pricing" style="color:var(--green-dark);font-weight:700;font-family:var(--font-head);font-size:.9rem;">See full pricing by height &rarr;</a></p>
     <div style="max-width:640px;margin:0 auto;background:var(--off-white);border-radius:var(--radius);padding:1.5rem 2rem;border-left:4px solid var(--green);text-align:center;" data-anim>
       <h3 style="color:var(--blue);margin-bottom:.5rem;">Need a Stand?</h3>
-      <p style="margin-bottom:1rem;">No stand? No problem. Add a professional tree stand to your service and we'll handle the setup.</p>
+      <p style="margin-bottom:1rem;">No stand? No problem. Add a professional tree stand to your service for <strong>$49</strong> and we'll handle the setup.</p>
       <button class="btn btn-outline btn-sm" data-modal="booking-modal">Add a Tree Stand</button>
     </div>
   </div>
@@ -714,6 +720,7 @@
         <li><a href="services.html#removal">End-of-Season Removal</a></li>
         <li><a href="services.html#bundle">Complete Christmas Service</a></li>
         <li><a href="services.html#stand">Tree Stand Add-On</a></li>
+        <li><a href="services.html#pricing">Pricing</a></li>
       </ul>
     </div>
 
@@ -801,11 +808,11 @@
           <label for="b-height">Tree Height</label>
           <select id="b-height" name="tree_height">
             <option value="">Not sure yet</option>
-            <option>Under 6 ft</option>
+            <option>Up to 6 ft</option>
             <option>6–7 ft</option>
             <option>7–8 ft</option>
             <option>8–9 ft</option>
-            <option>9 ft+</option>
+            <option>9–10 ft</option>
             <option>I have already picked out my tree</option>
           </select>
         </div>
@@ -813,10 +820,16 @@
           <label for="b-stand">Tree Stand</label>
           <select id="b-stand" name="tree_stand">
             <option value="">Not sure</option>
-            <option>I have my own stand</option>
-            <option>I need a stand</option>
+            <option value="I have my own stand">I have my own stand</option>
+            <option value="I need a stand">I need a stand (+$49)</option>
           </select>
         </div>
+      </div>
+      <div class="price-summary" id="price-summary" style="display:none;">
+        <h4>Estimated Price</h4>
+        <div id="price-rows"></div>
+        <div class="price-total"><span>Total</span><span id="price-total-amount">$0</span></div>
+        <p class="price-note">Final price confirmed when we discuss your tree.</p>
       </div>
       <div class="form-row">
         <div class="form-group">

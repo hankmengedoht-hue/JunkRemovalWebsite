@@ -571,6 +571,73 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ---- Booking Price Calculator ---- */
+  const PRICING = {
+    delivery: { 'Up to 6 ft': 149, '6–7 ft': 179, '7–8 ft': 199, '8–9 ft': 229, '9–10 ft': 279 },
+    removal:  { 'Up to 6 ft': 99,  '6–7 ft': 119, '7–8 ft': 139, '8–9 ft': 159, '9–10 ft': 189 },
+    bundle:   { 'Up to 6 ft': 219, '6–7 ft': 259, '7–8 ft': 289, '8–9 ft': 329, '9–10 ft': 399 },
+    standFee: 49
+  };
+  const money = (n) => (n < 0 ? '−$' + Math.abs(n) : '$' + n);
+
+  function initPriceSummary() {
+    const serviceEl = document.getElementById('b-service');
+    const heightEl = document.getElementById('b-height');
+    const standEl = document.getElementById('b-stand');
+    const summaryEl = document.getElementById('price-summary');
+    const rowsEl = document.getElementById('price-rows');
+    const totalEl = document.getElementById('price-total-amount');
+    if (!serviceEl || !heightEl || !standEl || !summaryEl || !rowsEl || !totalEl) return;
+
+    function render() {
+      const service = serviceEl.value;
+      const height = heightEl.value;
+      const wantsStand = standEl.value === 'I need a stand';
+      const heightPriced = height && PRICING.delivery[height] !== undefined;
+
+      if (!service || !heightPriced) {
+        summaryEl.style.display = 'none';
+        return;
+      }
+
+      const rows = [];
+      let total = 0;
+
+      if (service === 'Tree Delivery & Setup') {
+        rows.push(['Delivery &amp; Setup', PRICING.delivery[height]]);
+        total += PRICING.delivery[height];
+      } else if (service === 'End-of-Season Removal') {
+        rows.push(['End-of-Season Removal', PRICING.removal[height]]);
+        total += PRICING.removal[height];
+      } else if (service === 'Complete Christmas Service (Bundle)') {
+        const bundlePrice = PRICING.bundle[height];
+        const separatePrice = PRICING.delivery[height] + PRICING.removal[height];
+        const savings = separatePrice - bundlePrice;
+        rows.push(['Delivery &amp; Setup', PRICING.delivery[height]]);
+        rows.push(['End-of-Season Removal', PRICING.removal[height]]);
+        rows.push(['Bundle Savings', -savings, 'savings']);
+        total = bundlePrice;
+      } else {
+        summaryEl.style.display = 'none';
+        return;
+      }
+
+      if (wantsStand) {
+        rows.push(['Tree Stand', PRICING.standFee]);
+        total += PRICING.standFee;
+      }
+
+      rowsEl.innerHTML = rows.map(([label, amt, cls]) => `
+        <div class="price-row${cls ? ' ' + cls : ''}"><span>${label}</span><span class="amount">${money(amt)}</span></div>
+      `).join('');
+      totalEl.textContent = money(total);
+      summaryEl.style.display = 'block';
+    }
+
+    [serviceEl, heightEl, standEl].forEach(el => el.addEventListener('change', render));
+    render();
+  }
+
   /* ---- FAQ Accordion ---- */
   function initFaqAccordion() {
     document.querySelectorAll('.faq-card').forEach(card => {
@@ -595,5 +662,6 @@ document.addEventListener('DOMContentLoaded', () => {
   loadLifestyleBg();
   bindLightboxItems();
   initFaqAccordion();
+  initPriceSummary();
 
 });
