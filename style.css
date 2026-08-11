@@ -305,27 +305,6 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   .about-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* === Emotional Hook === */
-.emotional-hook {
-  padding: 5.5rem 1.25rem; background: var(--white);
-  text-align: center;
-}
-.emotional-hook-inner { max-width: 700px; margin: 0 auto; }
-.emotional-hook-divider {
-  width: 46px; height: 2px; background: var(--green);
-  margin: 0 auto 1.75rem;
-}
-.emotional-hook h2 {
-  color: var(--blue); margin-bottom: 1.25rem;
-}
-.emotional-hook p {
-  font-size: 1.1rem; line-height: 1.8;
-}
-.emotional-hook .lead {
-  font-family: var(--font-serif); font-size: 1.3rem;
-  color: var(--text-dark); font-style: italic; margin-bottom: 1rem;
-}
-
 /* === White Glove Benefits === */
 .white-glove { padding: var(--section-pad); background: var(--off-white); }
 .white-glove-grid {
@@ -469,8 +448,6 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .service-areas .section-header h2 { color: var(--white); }
 .service-areas .section-header p  { color: rgba(255,255,255,.72); }
 .areas-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
-.areas-map { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; }
-.areas-map iframe { width: 100%; height: 100%; border: none; display: block; }
 .areas-list { display: grid; grid-template-columns: repeat(2,1fr); gap: .6rem; }
 .area-chip {
   display: flex; align-items: center; justify-content: center; gap: .45rem;
@@ -481,7 +458,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 }
 .area-chip svg { color: var(--green); flex-shrink: 0; width: 14px; height: 14px; }
 .area-chip:hover { background: rgba(198,161,91,.18); border-color: var(--green); color: var(--green); }
-@media (min-width: 768px) { .areas-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 600px) { .areas-list { grid-template-columns: repeat(3,1fr); } }
 
 /* === Gallery Preview === */
 .gallery-preview { padding: var(--section-pad); background: var(--off-white); }
@@ -526,10 +503,6 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 @media (min-width: 1024px) { .testimonials-grid { grid-template-columns: repeat(3,1fr); } }
 
 /* === Payments === */
-.payments { padding: 3.5rem 1.25rem; background: var(--green-xlight); }
-.payments-inner { max-width: 780px; margin: 0 auto; text-align: center; }
-.payments-inner h3 { color: var(--blue); margin-bottom: .5rem; }
-.payments-inner p  { font-size: .9rem; margin-bottom: 1.75rem; }
 .payment-methods { display: flex; flex-wrap: wrap; gap: .9rem; justify-content: center; }
 .pay-badge {
   display: flex; align-items: center; gap: .6rem;
@@ -741,8 +714,6 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   padding: 2rem; box-shadow: var(--shadow);
 }
 .contact-form-card h3 { color: var(--blue); margin-bottom: 1.5rem; }
-.contact-map { border-radius: var(--radius); overflow: hidden; margin-top: 2rem; }
-.contact-map iframe { width: 100%; height: 320px; border: none; display: block; }
 @media (min-width: 1024px) { .contact-grid { grid-template-columns: 1fr 1.5fr; } }
 
 /* === Gallery Page === */
@@ -851,31 +822,6 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 @media (max-width: 767px) { #back-to-top { bottom: 90px; } }
 
 /* === How It Works (#10) === */
-.how-it-works { padding: var(--section-pad); background: var(--white); }
-.hiw-grid {
-  display: grid; grid-template-columns: 1fr; gap: 1.5rem;
-  max-width: 960px; margin: 0 auto;
-}
-.hiw-card {
-  background: var(--off-white); border-radius: var(--radius);
-  padding: 2rem 1.75rem; text-align: center;
-  box-shadow: var(--shadow); position: relative;
-  border: 1.5px solid rgba(198,161,91,.3);
-  transition: var(--transition);
-}
-.hiw-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--green); }
-.hiw-number {
-  width: 48px; height: 48px; border-radius: 50%;
-  background: var(--blue); color: var(--white);
-  font-family: var(--font-head); font-weight: 900; font-size: 1.3rem;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1rem;
-}
-.hiw-icon { font-size: 2rem; margin-bottom: .75rem; }
-.hiw-card h3 { margin-bottom: .75rem; color: var(--text-dark); }
-.hiw-card p  { font-size: .9rem; color: var(--text-mid); }
-@media (min-width: 768px) { .hiw-grid { grid-template-columns: repeat(3, 1fr); } }
-
 /* === FAQ Section === */
 .faq-section { padding: var(--section-pad); background: var(--off-white); }
 .faq-grid {
