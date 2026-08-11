@@ -1,9 +1,9 @@
 /* ==========================================
-   Palmetto Christmas Co. — Main JavaScript
+   Palmetto Christmas Co. | Main JavaScript
    ========================================== */
 
-// ─── Formspree endpoint — replace with your real ID after signing up at formspree.io ───
-// Get yours at: https://formspree.io → New Form → copy the endpoint URL
+// Formspree endpoint: replace with your real ID after signing up at formspree.io
+// Get yours at: https://formspree.io, New Form, copy the endpoint URL
 let FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <circle cx="8.5" cy="8.5" r="1.5"/>
               <polyline points="21 15 16 10 5 21"/>
             </svg>
-            <p style="font-family:var(--font-head);font-weight:600;">Photos coming soon — check back after our first jobs!</p>
+            <p style="font-family:var(--font-head);font-weight:600;">Photos coming soon. Check back after our first jobs!</p>
           </div>`;
         return;
       }
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = `
           <div class="testimonials-empty">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-            <p>We just launched — reviews coming soon! If you've used our service, we'd love to hear from you.</p>
+            <p>We just launched. Reviews coming soon! If you've used our service, we'd love to hear from you.</p>
             <button class="btn btn-primary" data-modal="review-modal">Be the First to Review</button>
           </div>`;
         // Re-bind modal trigger for newly injected button
@@ -464,14 +464,14 @@ document.addEventListener('DOMContentLoaded', () => {
       // Formspree endpoint
       if (s.formspree_endpoint) FORMSPREE_ENDPOINT = s.formspree_endpoint;
 
-      // Business name — single source of truth, edit in Admin → Site Settings
+      // Business name: single source of truth, edit in Admin > Site Settings
       if (s.business_name) {
         document.querySelectorAll('[data-business-name]').forEach(el => { el.textContent = s.business_name; });
         document.querySelectorAll('.nav-logo').forEach(a => { a.setAttribute('aria-label', s.business_name + ' Home'); });
         document.querySelectorAll('img[data-business-logo-alt]').forEach(img => { img.alt = s.business_name + ' logo'; });
       }
 
-      // Hank's phone — update hrefs and visible number text
+      // Hank's phone: update hrefs and visible number text
       if (s.hank_phone_tel) {
         document.querySelectorAll('a[href="tel:+18435550100"]').forEach(a => {
           a.href = `tel:${s.hank_phone_tel}`;
@@ -503,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Social links — set real URL or hide if empty
+      // Social links: set real URL or hide if empty
       document.querySelectorAll('a[aria-label*="Instagram"]').forEach(a => {
         if (s.instagram_url) a.href = s.instagram_url; else a.style.display = 'none';
       });
@@ -548,6 +548,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /* ---- FAQ Accordion ---- */
+  function initFaqAccordion() {
+    document.querySelectorAll('.faq-card').forEach(card => {
+      const btn = card.querySelector('.faq-question');
+      if (!btn || btn.dataset.bound) return;
+      btn.dataset.bound = 'true';
+      btn.addEventListener('click', () => {
+        const isOpen = card.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
+  }
+
   /* ---- Init ---- */
   loadSettings();
   initScrollAnimations();
@@ -557,5 +570,6 @@ document.addEventListener('DOMContentLoaded', () => {
   loadTeam();
   loadHomepageBg();
   bindLightboxItems();
+  initFaqAccordion();
 
 });

@@ -1,5 +1,5 @@
 /* ============================================
-   Palmetto Christmas Co. — Main Stylesheet
+   Palmetto Christmas Co. | Main Stylesheet
    Mobile-First | Charleston, SC Christmas Tree Delivery & Removal
    ============================================ */
 
@@ -7,18 +7,18 @@
 
 /* === CSS Variables === */
 :root {
-  /* Warm gold — accent color (was mint green) */
+  /* Warm gold accent color (was mint green) */
   --green:        #C6A15B;
   --green-dark:   #A9863F;
   --green-light:  #efe4c9;
   --green-xlight: #faf5e8;
 
-  /* Deep evergreen — primary brand color (was blue) */
+  /* Deep evergreen primary brand color (was blue) */
   --blue:         #123524;
   --blue-dark:    #0B2418;
   --blue-light:   #1c5138;
 
-  /* Burgundy — secondary accent, used sparingly */
+  /* Burgundy secondary accent, used sparingly */
   --burgundy:      #7A1F2B;
   --burgundy-dark: #5c1520;
 
@@ -757,10 +757,24 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   padding: 1.75rem 2rem; box-shadow: var(--shadow);
   border-left: 4px solid var(--green);
 }
-.faq-card h3 {
-  font-size: 1rem; color: var(--blue); margin-bottom: .6rem;
+.faq-question {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  width: 100%; background: none; border: none; padding: 0; margin: 0;
+  font-family: var(--font-head); font-weight: 700;
+  font-size: 1rem; color: var(--blue); text-align: left; cursor: pointer;
 }
-.faq-card p { font-size: .9rem; color: var(--text-mid); margin: 0; }
+.faq-icon {
+  flex-shrink: 0; width: 20px; height: 20px; color: var(--green);
+  transition: transform .25s ease;
+}
+.faq-card.open .faq-icon { transform: rotate(45deg); }
+.faq-answer-wrap {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .3s ease;
+}
+.faq-card.open .faq-answer-wrap { grid-template-rows: 1fr; }
+.faq-answer-inner { overflow: hidden; }
+.faq-answer-inner p { font-size: .9rem; color: var(--text-mid); margin: 0; padding-top: .85rem; }
 @media (min-width: 768px)  { .faq-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* === Why Local Beats Franchise (#13) === */
