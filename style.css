@@ -423,9 +423,13 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   border: 1.5px solid rgba(198,161,91,.3);
   display: flex; flex-direction: column;
 }
-.pricing-card.featured { border: 2px solid var(--green); box-shadow: var(--shadow-lg); }
-.pricing-card h3 { color: var(--blue); margin-bottom: .3rem; }
-.pricing-card .pricing-sub { font-size: .85rem; color: var(--text-light); margin-bottom: 1.25rem; }
+.pricing-card.featured { position: relative; border: 2px solid var(--green); box-shadow: var(--shadow-lg); }
+.pricing-card.featured .badge {
+  position: absolute; top: 0; left: 50%; transform: translate(-50%, -50%);
+  margin: 0; white-space: nowrap; z-index: 2;
+}
+.pricing-card h3 { color: var(--blue); margin-bottom: .3rem; min-height: 3.3rem; }
+.pricing-card .pricing-sub { font-size: .85rem; color: var(--text-light); margin-bottom: 1.25rem; min-height: 2.6rem; }
 .price-table { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.25rem; }
 .price-row {
   display: flex; justify-content: space-between; align-items: center;
