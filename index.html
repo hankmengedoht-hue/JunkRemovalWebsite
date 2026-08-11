@@ -177,24 +177,29 @@
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
+<!-- ===================== HERO (full-bleed photo set via Admin -> Homepage Background) ===================== -->
 <section class="hero" aria-label="Hero">
-  <div class="hero-inner">
+  <img id="hero-bg-img" class="hero-bg-img" src="" alt="A curated Christmas tree installed in a warm Charleston home" style="display:none;">
+  <div class="hero-overlay"></div>
+  <div class="hero-bg-placeholder" id="hero-bg-placeholder">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M12 2l4 6h-3l4 6h-3l4 6H6l4-6H7l4-6H8l4-6z"/></svg>
+    <p style="font-family:var(--font-head);font-weight:700;font-size:.85rem;">Upload a photo in Admin &rarr; Homepage Background</p>
+  </div>
 
-    <!-- LEFT: Text -->
+  <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-eyebrow" data-anim>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        Charleston's White-Glove Christmas Service
+        Southern Hospitality &middot; Christmas Concierge
       </div>
       <h1 data-anim data-anim-delay="1">
         A Better Way to<br><em>Bring Christmas Home.</em>
       </h1>
       <p class="hero-sub" data-anim data-anim-delay="2">
-        Choose your tree and let us handle the rest. From delivery and in-home setup to end-of-season removal, we take care of the work so you can relax and enjoy the holiday.
+        Enjoy the season with your family, not hassling with trees, roof racks, and sappy hands. A curated tree, beautifully installed in your home, then quietly taken away when the season ends.
       </p>
       <p class="hero-hassle-line" data-anim data-anim-delay="2">
-        No roof racks. No sappy hands. No wrestling with the stand. No needles through the house.
+        &ldquo;Relax and enjoy the holiday season.&rdquo; Allow a white-glove service to make it stress-free.
       </p>
       <div class="hero-cta" data-anim data-anim-delay="3">
         <button class="btn btn-secondary btn-lg" data-modal="booking-modal">
@@ -211,7 +216,7 @@
         </span>
         <span class="trust-pill">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-          Setup &amp; Initial Watering
+          White-Glove Installation
         </span>
         <span class="trust-pill">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -223,18 +228,6 @@
         </span>
       </div>
     </div>
-
-    <!-- RIGHT: Photo (set via CMS "Homepage Background" field) -->
-    <div class="hero-image-wrap" data-anim data-anim-delay="2">
-      <img id="hero-right-img" src="" alt="Christmas tree delivered and set up in a Charleston home" style="display:none;width:100%;height:100%;object-fit:cover;">
-      <div class="hero-img-placeholder" id="hero-img-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" style="width:72px;height:72px;opacity:.25;margin-bottom:1rem;">
-          <path d="M12 2l4 6h-3l4 6h-3l4 6H6l4-6H7l4-6H8l4-6z"/>
-        </svg>
-        <p style="font-family:var(--font-head);font-weight:700;font-size:.9rem;color:rgba(255,255,255,.35);text-align:center;">Upload a photo in<br>Admin &rarr; Homepage Background</p>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -243,8 +236,8 @@
   <div class="emotional-hook-inner" data-anim>
     <div class="emotional-hook-divider"></div>
     <p class="lead">Christmas should feel like Christmas.</p>
-    <h2 id="emotional-heading">Not a Trip to the Tree Lot. Not a Tree Strapped to the Roof.</h2>
-    <p>Just a beautiful tree, perfectly placed, and more time to enjoy the people you brought it home for. You have enough to do this time of year. Let us take this one off your plate.</p>
+    <h2 id="emotional-heading">You're Not Buying a Tree Delivery. You're Buying Back Your Time.</h2>
+    <p>A curated tree, beautifully installed in your home, and more time to enjoy the people you brought it home for. It's Southern hospitality applied to the holidays: someone else quietly handling every annoying part, so all that's left for you is the magic.</p>
   </div>
 </section>
 
@@ -252,9 +245,9 @@
 <section class="why-local" aria-labelledby="why-local-heading">
   <div class="container">
     <div class="section-header" data-anim>
-      <span class="badge" style="background:rgba(198,161,91,.2);color:var(--green);">There's a Better Way</span>
+      <span class="badge" style="background:rgba(198,161,91,.2);color:var(--green);">The Absence of Hassle</span>
       <h2 id="why-local-heading" style="color:var(--white);">Your Christmas, the Easy Way</h2>
-      <p style="color:rgba(255,255,255,.72);">Choose. We deliver. We set it up. We clean up. You enjoy.</p>
+      <p style="color:rgba(255,255,255,.72);">Choose. We deliver. We install it beautifully. We clean up. You enjoy.</p>
     </div>
     <div class="why-local-grid">
       <div class="why-col why-col-bad" data-anim>
@@ -289,7 +282,7 @@
     <div class="section-header" data-anim>
       <span class="badge">Our Christmas Services</span>
       <h2 id="services-heading">Everything Christmas. Beautifully Handled.</h2>
-      <p>From delivery to removal, we handle every part of having a real Christmas tree, without the hassle.</p>
+      <p>From a curated tree to in-home installation and post-season removal, we handle every part of the experience, without the hassle.</p>
     </div>
 
     <div class="services-grid">
@@ -326,7 +319,7 @@
     <div class="section-header" data-anim>
       <span class="badge">The Experience</span>
       <h2 id="white-glove-heading">We Handle the Details. You Enjoy the Season.</h2>
-      <p>Your Christmas tree shouldn't come with a to-do list. We handle the lifting, setup, watering, and cleanup, with the same care we'd bring to our own home.</p>
+      <p>Your Christmas tree shouldn't come with a to-do list. We handle the lifting, setup, watering, and cleanup, with the same warmth and care you'd expect from a good neighbor, not a delivery crew.</p>
     </div>
     <div class="white-glove-grid">
       <div class="white-glove-item" data-anim data-anim-delay="1">

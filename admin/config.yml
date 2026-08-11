@@ -127,13 +127,13 @@ collections:
   # ─────────────────────────────────────────
   - name: "homepage-bg"
     label: "Homepage Background"
-    description: "Upload a photo to use as the hero background on the home page."
+    description: "Upload a full-bleed photo behind the homepage hero text (a warm, decorated tree in a Charleston home works well). A dark gradient is applied automatically so the text stays readable."
     files:
       - label: "Homepage Background"
         name: "homepage-bg-image"
         file: "_data/homepage-bg.json"
         fields:
-          - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Recommended: wide landscape photo, at least 1600px wide." }
+          - { label: "Background Image", name: "image", widget: "image", required: false, hint: "Recommended: wide landscape photo, at least 1800px wide, with some natural darkness or shadow on the left side where the headline sits." }
 
   # ─────────────────────────────────────────
   # HOMEPAGE LIFESTYLE SECTION

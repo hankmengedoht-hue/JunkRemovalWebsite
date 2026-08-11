@@ -525,10 +525,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ---- Homepage Right-Side Image ---- */
+  /* ---- Homepage Hero Background Image ---- */
   async function loadHomepageBg() {
-    const img = document.getElementById('hero-right-img');
-    const placeholder = document.getElementById('hero-img-placeholder');
+    const img = document.getElementById('hero-bg-img');
+    const placeholder = document.getElementById('hero-bg-placeholder');
     if (!img) return;
     try {
       const res = await fetch('_data/homepage-bg.json', { cache: 'no-cache' });
