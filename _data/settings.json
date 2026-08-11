@@ -7,6 +7,6 @@
   "email": "hankmengedoht@gmail.com",
   "instagram_url": "",
   "facebook_url": "",
-  "formspree_endpoint": "",
+  "formspree_endpoint": "https://formspree.io/f/mwleoypb",
   "payment_methods": ["Cash", "PayPal", "Venmo", "Check"]
 }
