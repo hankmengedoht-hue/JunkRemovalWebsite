@@ -1,5 +1,5 @@
 /* ==========================================
-   Palmetto Haul Co. — Main JavaScript
+   Palmetto Christmas Co. — Main JavaScript
    ========================================== */
 
 // ─── Formspree endpoint — replace with your real ID after signing up at formspree.io ───
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       submitToFormspree(bookingForm, successHTML(
         'Request Received!',
-        "We'll contact you within 1 hour to confirm your pickup. For faster service, call or text us directly."
+        "We'll contact you within 1 hour to confirm your Christmas tree service. For faster service, call or text us directly."
       ));
     });
   }
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const normPath = (p) => p ? p.replace(/^\//, '') : '';
       grid.innerHTML = photos.map((photo, i) => `
         <div class="gallery-full-item" data-category="${photo.category || 'all'}" data-anim data-anim-delay="${(i % 4) + 1}">
-          <img src="${normPath(photo.image)}" alt="${photo.alt || photo.caption || 'Junk removal job in Charleston SC'}" loading="lazy">
+          <img src="${normPath(photo.image)}" alt="${photo.alt || photo.caption || 'Christmas tree delivery in Charleston SC'}" loading="lazy">
           <div class="gallery-overlay">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
             ${photo.caption || 'View'}
@@ -377,7 +377,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const normPath = (p) => p ? p.replace(/^\//, '') : '';
       homeGrid.innerHTML = photos.map((photo, i) => `
         <div class="gallery-item" data-anim data-anim-delay="${i + 1}">
-          <img src="${normPath(photo.image)}" alt="${photo.alt || photo.caption || 'Junk removal job in Charleston SC'}" loading="lazy">
+          <img src="${normPath(photo.image)}" alt="${photo.alt || photo.caption || 'Christmas tree delivery in Charleston SC'}" loading="lazy">
         </div>`).join('');
 
       initScrollAnimations();
@@ -463,6 +463,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Formspree endpoint
       if (s.formspree_endpoint) FORMSPREE_ENDPOINT = s.formspree_endpoint;
+
+      // Business name — single source of truth, edit in Admin → Site Settings
+      if (s.business_name) {
+        document.querySelectorAll('[data-business-name]').forEach(el => { el.textContent = s.business_name; });
+        document.querySelectorAll('.nav-logo').forEach(a => { a.setAttribute('aria-label', s.business_name + ' Home'); });
+        document.querySelectorAll('img[data-business-logo-alt]').forEach(img => { img.alt = s.business_name + ' logo'; });
+      }
 
       // Hank's phone — update hrefs and visible number text
       if (s.hank_phone_tel) {

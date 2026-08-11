@@ -23,7 +23,7 @@ collections:
   # ─────────────────────────────────────────
   - name: "gallery"
     label: "Gallery Photos"
-    description: "Before & after job photos shown in the Gallery page."
+    description: "Delivery, setup, and removal photos shown in the Gallery page."
     files:
       - label: "Gallery Photos"
         name: "gallery-photos"
@@ -36,17 +36,16 @@ collections:
             summary: "{{fields.caption}}"
             fields:
               - { label: "Photo", name: "image", widget: "image" }
-              - { label: "Caption", name: "caption", widget: "string", required: false, hint: "Short label e.g. 'Garage cleanout — West Ashley'" }
-              - { label: "Alt Text (SEO)", name: "alt", widget: "string", required: false, hint: "Describe the photo for Google e.g. 'Before and after garage junk removal James Island SC'" }
+              - { label: "Caption", name: "caption", widget: "string", required: false, hint: "Short label e.g. 'Tree setup — West Ashley'" }
+              - { label: "Alt Text (SEO)", name: "alt", widget: "string", required: false, hint: "Describe the photo for Google e.g. 'Christmas tree delivery and setup James Island SC'" }
               - label: "Category"
                 name: "category"
                 widget: "select"
                 options:
-                  - { label: "Residential", value: "residential" }
-                  - { label: "Furniture & Appliances", value: "furniture" }
-                  - { label: "Yard Debris", value: "yard" }
-                  - { label: "Commercial", value: "commercial" }
-                  - { label: "Construction Debris", value: "construction" }
+                  - { label: "Delivery", value: "delivery" }
+                  - { label: "Setup", value: "setup" }
+                  - { label: "Removal", value: "removal" }
+                  - { label: "Homes We've Served", value: "homes" }
                 required: false
               - { label: "Published", name: "published", widget: "boolean", default: true }
 
