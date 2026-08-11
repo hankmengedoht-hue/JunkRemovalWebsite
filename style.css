@@ -215,8 +215,9 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   position: relative; z-index: 3;
   max-width: 1280px; margin: 0 auto; width: 100%;
   padding: 8rem 1.5rem 5rem;
+  text-align: center;
 }
-.hero-text { max-width: 620px; }
+.hero-text { max-width: 640px; margin: 0 auto; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: .5rem;
   background: rgba(198,161,91,.18);
@@ -236,12 +237,12 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 }
 .hero-hassle-line {
   font-family: var(--font-serif); font-style: italic; color: rgba(255,255,255,.68);
-  font-size: 1rem; margin: 0 0 2rem; max-width: 520px; line-height: 1.6;
+  font-size: 1rem; margin: 0 auto 2rem; max-width: 520px; line-height: 1.6;
 }
-.hero-cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 1.25rem; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 1.25rem; justify-content: center; }
 .hero-cta-note { font-size: .85rem; color: rgba(255,255,255,.65); margin-bottom: 2.5rem; }
 .hero-cta-note a { color: var(--green); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
-.hero-trust { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.hero-trust { display: flex; flex-wrap: wrap; gap: 1.25rem; justify-content: center; }
 .trust-pill {
   display: flex; align-items: center; gap: .5rem;
   color: rgba(255,255,255,.78);
@@ -277,6 +278,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
 
+.about-text { text-align: center; }
 .about-text .badge { margin-bottom: .5rem; }
 .about-text h2 { margin-bottom: 1rem; }
 .about-text p  { margin-bottom: 1rem; }
@@ -383,8 +385,10 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   border-radius: var(--radius); padding: 1.75rem;
   transition: var(--transition);
   display: flex; flex-direction: column; gap: .7rem;
+  text-align: center;
 }
 .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--green); }
+.service-card .service-icon { margin: 0 auto; }
 .service-icon {
   width: 52px; height: 52px; border-radius: 12px;
   display: flex; align-items: center; justify-content: center;
@@ -469,7 +473,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .areas-map iframe { width: 100%; height: 100%; border: none; display: block; }
 .areas-list { display: grid; grid-template-columns: repeat(2,1fr); gap: .6rem; }
 .area-chip {
-  display: flex; align-items: center; gap: .45rem;
+  display: flex; align-items: center; justify-content: center; gap: .45rem;
   background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
   color: var(--white); padding: .6rem .9rem; border-radius: 8px;
   font-family: var(--font-head); font-weight: 600; font-size: .85rem;
@@ -511,10 +515,10 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
 .testimonial-card {
   background: var(--off-white); border-radius: var(--radius);
-  padding: 1.75rem; border-left: 4px solid var(--green);
-  box-shadow: var(--shadow);
+  padding: 1.75rem; border-top: 4px solid var(--green);
+  box-shadow: var(--shadow); text-align: center;
 }
-.stars { display: flex; gap: .2rem; margin-bottom: .75rem; color: #FBBF24; font-size: 1rem; }
+.stars { display: flex; gap: .2rem; margin-bottom: .75rem; color: #FBBF24; font-size: 1rem; justify-content: center; }
 .testimonial-card p { font-style: italic; margin-bottom: 1rem; }
 .testimonial-author { font-family: var(--font-head); font-weight: 700; font-size: .88rem; }
 .testimonial-loc    { font-size: .78rem; color: var(--gray); }
@@ -899,7 +903,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 }
 .faq-card.open .faq-answer-wrap { grid-template-rows: 1fr; }
 .faq-answer-inner { overflow: hidden; }
-.faq-answer-inner p { font-size: .9rem; color: var(--text-mid); margin: 0; padding-top: .85rem; }
+.faq-answer-inner p { font-size: .9rem; color: var(--text-mid); margin: 0; padding-top: .85rem; text-align: center; }
 @media (min-width: 768px)  { .faq-grid { grid-template-columns: repeat(2, 1fr); } }
 
 /* === Why Local Beats Franchise (#13) === */
@@ -922,11 +926,13 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   font-family: var(--font-head); font-size: 1.05rem; font-weight: 800;
   color: var(--white); margin-bottom: 1.25rem; padding-bottom: .75rem;
   border-bottom: 1px solid rgba(255,255,255,.2);
+  text-align: center;
 }
-.why-list { display: flex; flex-direction: column; gap: .75rem; }
+.why-list { display: flex; flex-direction: column; gap: .75rem; align-items: center; }
 .why-list li {
   display: flex; align-items: flex-start; gap: .75rem;
   color: rgba(255,255,255,.82); font-size: .9rem; line-height: 1.5;
+  text-align: left;
 }
 .why-x   { flex-shrink: 0; }
 .why-check { flex-shrink: 0; }
