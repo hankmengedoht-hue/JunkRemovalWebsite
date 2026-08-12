@@ -108,4 +108,4 @@ To make them actually send emails to you, use **Formspree** (free):
 - [ ] Update placeholder text in About page
 - [ ] Add real Instagram/Facebook profile links
 - [ ] Set up Formspree for contact forms (see above)
-- [ ] Update business name if different from "Palmetto Christmas Co." (edit `_data/settings.json` → business_name, plus page `<title>`/meta tags and the JSON-LD name field on each page)
+- [ ] Update business name if different from "Palmetto Christmas Concierge" (edit `_data/settings.json` → business_name, plus page `<title>`/meta tags and the JSON-LD name field on each page)
