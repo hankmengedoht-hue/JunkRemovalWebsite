@@ -489,7 +489,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
 .testimonial-card {
   background: var(--off-white); border-radius: var(--radius);
-  padding: 1.75rem; border-top: 4px solid var(--green);
+  padding: 1.75rem; border: 1.5px solid rgba(198,161,91,.3);
   box-shadow: var(--shadow); text-align: center;
 }
 .stars { display: flex; gap: .2rem; margin-bottom: .75rem; color: #FBBF24; font-size: 1rem; justify-content: center; }
@@ -679,7 +679,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .value-item {
   display: flex; align-items: flex-start; gap: 1rem;
   padding: 1.1rem 1.25rem; background: var(--off-white);
-  border-radius: var(--radius-sm); border-left: 3px solid var(--green);
+  border-radius: var(--radius-sm); border: 1px solid rgba(198,161,91,.3);
 }
 .value-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
 .value-item h4 { margin-bottom: .25rem; color: var(--blue); font-size: .95rem; }
@@ -827,7 +827,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .faq-card {
   background: var(--white); border-radius: var(--radius);
   padding: 1.75rem 2rem; box-shadow: var(--shadow);
-  border-left: 4px solid var(--green);
+  border: 1.5px solid rgba(198,161,91,.3);
 }
 .faq-question {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
@@ -892,7 +892,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 
 /* === Urgency Note (contact.html) (#17) === */
 .response-note {
-  border-left: 3px solid var(--green); background: var(--green-xlight);
+  background: var(--green-xlight); border: 1px solid rgba(198,161,91,.35);
   border-radius: var(--radius-sm); padding: .75rem 1rem;
   font-size: .85rem; color: var(--text-mid); font-weight: 600;
   margin-bottom: 1rem;
