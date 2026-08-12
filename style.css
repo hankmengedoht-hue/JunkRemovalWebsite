@@ -217,8 +217,8 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .hero-text {
   max-width: 640px; margin: 0 auto;
   background: rgba(8,26,17,.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 24px;
   padding: 2.25rem 1.75rem;
