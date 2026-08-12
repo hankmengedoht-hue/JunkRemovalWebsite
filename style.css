@@ -203,7 +203,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 2;
-  background: linear-gradient(100deg, rgba(11,36,24,.93) 0%, rgba(11,36,24,.82) 34%, rgba(18,53,36,.52) 62%, rgba(18,53,36,.3) 100%);
+  background: linear-gradient(100deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.68) 34%, rgba(0,0,0,.4) 62%, rgba(0,0,0,.18) 100%);
 }
 .hero-bg-placeholder {
   position: absolute; inset: 0; z-index: 1;
@@ -347,14 +347,6 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   color: var(--white); font-size: clamp(1.4rem, 3.5vw, 2.1rem);
   line-height: 1.5;
 }
-.lifestyle-placeholder {
-  position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
-  z-index: 3; display: flex; align-items: center; gap: .5rem;
-  color: rgba(255,255,255,.35); font-family: var(--font-head); font-weight: 700; font-size: .78rem;
-  text-align: center; white-space: nowrap;
-}
-.lifestyle-placeholder svg { width: 20px; height: 20px; opacity: .6; flex-shrink: 0; }
-
 /* === Services Snapshot === */
 .services-snapshot { padding: var(--section-pad); background: var(--white); }
 .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
