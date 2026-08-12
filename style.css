@@ -217,24 +217,33 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .hero-text { max-width: 640px; margin: 0 auto; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: .5rem;
-  background: rgba(198,161,91,.18);
-  border: 1px solid rgba(198,161,91,.35);
+  background: rgba(11,36,24,.8);
+  border: 1px solid rgba(198,161,91,.5);
   color: var(--green);
   font-family: var(--font-head); font-size: .75rem; font-weight: 700;
   letter-spacing: .1em; text-transform: uppercase;
   padding: .4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
 }
-.hero h1 { color: var(--white); margin-bottom: 1.2rem; letter-spacing: -.02em; text-shadow: 0 2px 30px rgba(0,0,0,.25); }
+/* Per-line highlight so hero text stays legible over any background photo */
+.text-highlight {
+  display: inline;
+  background: rgba(0,0,0,.55);
+  padding: .12em .4em;
+  border-radius: 5px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.hero h1 { color: var(--white); margin-bottom: 1.2rem; letter-spacing: -.02em; }
 .hero h1 em { color: var(--green); font-style: normal; }
 .hero-sub {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
-  color: rgba(255,255,255,.85);
-  margin-bottom: 1.5rem; font-weight: 300; line-height: 1.7;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 1.5rem; font-weight: 300; line-height: 1.9;
   max-width: 560px;
 }
 .hero-hassle-line {
-  font-family: var(--font-serif); font-style: italic; color: rgba(255,255,255,.68);
-  font-size: 1rem; margin: 0 auto 2rem; max-width: 520px; line-height: 1.6;
+  font-family: var(--font-serif); font-style: italic; color: rgba(255,255,255,.85);
+  font-size: 1rem; margin: 0 auto 2rem; max-width: 520px; line-height: 1.9;
 }
 .hero-cta { display: flex; flex-wrap: wrap; gap: .9rem; margin-bottom: 1.25rem; justify-content: center; }
 .hero-cta-note { font-size: .85rem; color: rgba(255,255,255,.65); margin-bottom: 2.5rem; }
