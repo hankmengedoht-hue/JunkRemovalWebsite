@@ -216,7 +216,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 }
 .hero-text {
   max-width: 640px; margin: 0 auto;
-  background: rgba(8,26,17,.4);
+  background: rgba(8,26,17,.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,.08);
