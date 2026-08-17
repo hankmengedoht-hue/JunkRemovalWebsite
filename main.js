@@ -606,15 +606,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (service === 'Tree Delivery & Setup') {
         rows.push(['Delivery &amp; Setup', PRICING.delivery[height]]);
         total += PRICING.delivery[height];
-      } else if (service === 'End-of-Season Removal') {
-        rows.push(['End-of-Season Removal', PRICING.removal[height]]);
+      } else if (service === 'Removal and Composting') {
+        rows.push(['Removal and Composting', PRICING.removal[height]]);
         total += PRICING.removal[height];
       } else if (service === 'Complete Christmas Service (Bundle)') {
         const bundlePrice = PRICING.bundle[height];
         const separatePrice = PRICING.delivery[height] + PRICING.removal[height];
         const savings = separatePrice - bundlePrice;
         rows.push(['Delivery &amp; Setup', PRICING.delivery[height]]);
-        rows.push(['End-of-Season Removal', PRICING.removal[height]]);
+        rows.push(['Removal and Composting', PRICING.removal[height]]);
         rows.push(['Bundle Savings', -savings, 'savings']);
         total = bundlePrice;
       } else {
