@@ -558,8 +558,28 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   max-width: 1200px; margin: 0 auto;
   font-size: .78rem; color: rgba(255,255,255,.3);
 }
+.footer-legal-links { margin-top: .4rem; }
+.footer-legal-links a { color: rgba(255,255,255,.4); text-decoration: underline; text-underline-offset: 2px; }
+.footer-legal-links a:hover { color: var(--green); }
 @media (min-width: 600px)  { .footer-grid { grid-template-columns: repeat(2,1fr); } }
 @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.2fr; } }
+
+/* === Legal Content (Privacy Policy) === */
+.legal-content { padding: var(--section-pad); background: var(--white); }
+.legal-body { max-width: 760px; margin: 0 auto; }
+.legal-updated { font-size: .82rem; color: var(--text-light); font-weight: 600; margin-bottom: 2rem; }
+.legal-body h2 {
+  font-family: var(--font-head); font-size: 1.15rem; color: var(--blue);
+  margin: 2.25rem 0 .85rem;
+}
+.legal-body h2:first-of-type { margin-top: 0; }
+.legal-body p { margin-bottom: 1rem; }
+.legal-body ul { list-style: disc; padding-left: 1.4rem; margin-bottom: 1rem; }
+.legal-body ul li { margin-bottom: .4rem; color: var(--text-mid); }
+.legal-contact-block {
+  background: var(--off-white); border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem; line-height: 1.9;
+}
 
 /* === Modals === */
 .modal-overlay {
