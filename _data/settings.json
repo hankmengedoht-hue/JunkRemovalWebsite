@@ -8,5 +8,5 @@
   "instagram_url": "",
   "facebook_url": "",
   "formspree_endpoint": "https://formspree.io/f/mwleoypb",
-  "payment_methods": ["Cash", "PayPal", "Venmo", "Check"]
+  "payment_methods": ["Cash", "Card", "Check", "Venmo", "PayPal"]
 }

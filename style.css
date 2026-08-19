@@ -893,14 +893,16 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   border-bottom: 1px solid rgba(255,255,255,.2);
   text-align: center;
 }
-.why-list { display: flex; flex-direction: column; gap: .75rem; align-items: center; }
+.why-list {
+  display: flex; flex-direction: column; gap: .75rem;
+  max-width: 380px; margin: 0 auto;
+}
 .why-list li {
   display: flex; align-items: flex-start; gap: .75rem;
   color: rgba(255,255,255,.82); font-size: .9rem; line-height: 1.5;
   text-align: left;
 }
-.why-x   { flex-shrink: 0; }
-.why-check { flex-shrink: 0; }
+.why-x, .why-check { flex-shrink: 0; width: 1.1em; text-align: center; }
 @media (min-width: 768px) { .why-local-grid { grid-template-columns: 1fr 1fr; } }
 
 /* === Price Badge (services.html) (#16) === */

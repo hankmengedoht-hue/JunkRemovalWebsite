@@ -576,7 +576,7 @@ document.addEventListener('DOMContentLoaded', () => {
     delivery: { 'Up to 6 ft': 149, '6–7 ft': 179, '7–8 ft': 199, '8–9 ft': 229, '9–10 ft': 279 },
     removal:  { 'Up to 6 ft': 99,  '6–7 ft': 119, '7–8 ft': 139, '8–9 ft': 159, '9–10 ft': 189 },
     bundle:   { 'Up to 6 ft': 219, '6–7 ft': 259, '7–8 ft': 289, '8–9 ft': 329, '9–10 ft': 399 },
-    standFee: 49
+    standFee: 55
   };
   const money = (n) => (n < 0 ? '−$' + Math.abs(n) : '$' + n);
 
