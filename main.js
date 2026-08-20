@@ -514,9 +514,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // Payment methods section
       const pmList = document.getElementById('payment-methods-list');
       if (pmList && s.payment_methods?.length) {
-        const icons = { Cash: '💵', PayPal: '💙', Venmo: '💚', Check: '✉️', Zelle: '💛', Card: '💳' };
         pmList.innerHTML = s.payment_methods.map(m =>
-          `<span class="pay-badge"><span>${icons[m] || '💰'}</span> ${m}</span>`
+          `<span class="pay-badge">${m}</span>`
         ).join('');
       }
 

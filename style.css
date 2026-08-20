@@ -232,7 +232,14 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   letter-spacing: .1em; text-transform: uppercase;
   padding: .4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
 }
-.hero h1 { color: var(--white); margin-bottom: 1.2rem; letter-spacing: -.02em; }
+.hero h1 {
+  color: var(--white); margin-bottom: 1.2rem; letter-spacing: -.02em;
+  text-shadow:
+    -1.5px -1.5px 0 rgba(0,0,0,.55), 1.5px -1.5px 0 rgba(0,0,0,.55),
+    -1.5px 1.5px 0 rgba(0,0,0,.55), 1.5px 1.5px 0 rgba(0,0,0,.55),
+    0 3px 16px rgba(0,0,0,.45);
+  -webkit-text-stroke: .5px rgba(0,0,0,.3);
+}
 .hero h1 em { color: var(--green); font-style: normal; }
 .hero-sub {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
