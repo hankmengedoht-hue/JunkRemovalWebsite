@@ -14,7 +14,7 @@ backend:
 media_folder: "images/uploads"
 public_folder: "images/uploads"
 
-site_url: https://hankmengedoht-hue.github.io/JunkRemovalWebsite
+site_url: https://charlestontreeconcierge.com
 
 collections:
 
@@ -97,8 +97,8 @@ collections:
           - { label: "Jacob's Phone", name: "jacob_phone", widget: "string", hint: "e.g. (843) 555-0101" }
           - { label: "Jacob's Phone (tel: link)", name: "jacob_phone_tel", widget: "string", hint: "e.g. +18435550101" }
           - { label: "Email Address", name: "email", widget: "string" }
-          - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full URL e.g. https://instagram.com/palmettohaul" }
-          - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false, hint: "Full URL e.g. https://facebook.com/palmettohaul" }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full URL e.g. https://instagram.com/charlestontreeconcierge" }
+          - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false, hint: "Full URL e.g. https://facebook.com/charlestontreeconcierge" }
           - { label: "Formspree Endpoint", name: "formspree_endpoint", widget: "string", required: false, hint: "Paste your Formspree form URL e.g. https://formspree.io/f/xabcdef" }
           - label: "Accepted Payment Methods"
             name: "payment_methods"

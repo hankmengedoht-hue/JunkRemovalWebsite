@@ -1,5 +1,5 @@
 /* ==========================================
-   Palmetto Christmas Co. | Main JavaScript
+   Charleston Tree Concierge | Main JavaScript
    ========================================== */
 
 // Formspree endpoint: replace with your real ID after signing up at formspree.io

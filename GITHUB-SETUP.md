@@ -65,7 +65,7 @@ GitHub Pages will automatically update within a minute or two.
 
 ## Custom Domain (Optional — Recommended)
 
-To use a domain like `www.palmettohaul.com`:
+To use a domain like `charlestontreeconcierge.com` (already set up via the `CNAME` file in this repo):
 
 1. Buy a domain from Namecheap, GoDaddy, Cloudflare, etc.
 2. In your repo → Settings → Pages → Custom domain → enter your domain
@@ -101,11 +101,11 @@ To make them actually send emails to you, use **Formspree** (free):
 
 - [ ] Replace `(843) 555-0100` with Hank's real number
 - [ ] Replace `(843) 555-0101` with Jacob's real number
-- [ ] Replace `hello@palmettohaul.com` with your real email
-- [ ] Replace `https://www.palmettohaul.com` with your real domain (or GitHub Pages URL)
+- [x] Replace `hello@palmettohaul.com` with your real email (set in `_data/settings.json`)
+- [x] Custom domain `charlestontreeconcierge.com` is live via the `CNAME` file
 - [ ] Add your logo to `images/logo.png`
 - [ ] Add team photos to `images/`
 - [ ] Update placeholder text in About page
 - [ ] Add real Instagram/Facebook profile links
 - [ ] Set up Formspree for contact forms (see above)
-- [ ] Update business name if different from "Palmetto Christmas Concierge" (edit `_data/settings.json` → business_name, plus page `<title>`/meta tags and the JSON-LD name field on each page)
+- [ ] Update business name if different from "Charleston Tree Concierge" (edit `_data/settings.json` → business_name, plus page `<title>`/meta tags and the JSON-LD name field on each page)
