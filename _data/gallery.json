@@ -1,1 +1,25 @@
-{"photos": []}
+{
+  "photos": [
+    {
+      "image": "/images/uploads/IMG_9705.jpg",
+      "caption": "Delivering a 9' tree",
+      "alt": "",
+      "category": "delivery",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/IMG_0480.PNG",
+      "caption": "On the way to a delivery",
+      "alt": "",
+      "category": "delivery",
+      "published": true
+    },
+    {
+      "image": "/images/uploads/image.JPG",
+      "caption": "Delivering a 12' tree to the Citadel",
+      "alt": "",
+      "category": "setup",
+      "published": true
+    }
+  ]
+}
