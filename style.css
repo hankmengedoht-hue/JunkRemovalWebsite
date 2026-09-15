@@ -241,6 +241,12 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   -webkit-text-stroke: .5px rgba(0,0,0,.3);
 }
 .hero h1 em { color: var(--green); font-style: normal; }
+.hero-h1-kicker {
+  display: block; font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(.85rem, 1.6vw, 1rem); letter-spacing: .04em;
+  color: rgba(255,255,255,.82); text-transform: uppercase;
+  margin-bottom: .6rem; text-shadow: 0 2px 10px rgba(0,0,0,.5);
+}
 .hero-sub {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   color: rgba(255,255,255,.92);
