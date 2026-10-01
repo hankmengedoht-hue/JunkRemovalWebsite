@@ -139,13 +139,7 @@
       <div class="pricing-card" data-anim>
         <h3>Delivery &amp; Setup</h3>
         <p class="pricing-sub">Your tree, delivered and professionally set up.</p>
-        <div class="price-table">
-          <div class="price-row"><span class="height">Up to 6 ft</span><span class="amount">$149</span></div>
-          <div class="price-row"><span class="height">6–7 ft</span><span class="amount">$179</span></div>
-          <div class="price-row"><span class="height">7–8 ft</span><span class="amount">$199</span></div>
-          <div class="price-row"><span class="height">8–9 ft</span><span class="amount">$229</span></div>
-          <div class="price-row"><span class="height">9–10 ft</span><span class="amount">$279</span></div>
-        </div>
+        <div class="price-table" data-pricing="delivery"></div>
         <div class="pricing-includes">
           <div><span>&#10003;</span>Tree pickup</div>
           <div><span>&#10003;</span>Delivery to your home</div>
@@ -160,13 +154,7 @@
       <div class="pricing-card" data-anim data-anim-delay="1">
         <h3>Removal and Composting</h3>
         <p class="pricing-sub">We'll take it away and leave your home clean.</p>
-        <div class="price-table">
-          <div class="price-row"><span class="height">Up to 6 ft</span><span class="amount">$99</span></div>
-          <div class="price-row"><span class="height">6–7 ft</span><span class="amount">$119</span></div>
-          <div class="price-row"><span class="height">7–8 ft</span><span class="amount">$139</span></div>
-          <div class="price-row"><span class="height">8–9 ft</span><span class="amount">$159</span></div>
-          <div class="price-row"><span class="height">9–10 ft</span><span class="amount">$189</span></div>
-        </div>
+        <div class="price-table" data-pricing="removal"></div>
         <div class="pricing-includes">
           <div><span>&#10003;</span>Water removal</div>
           <div><span>&#10003;</span>Stand removal</div>
@@ -181,13 +169,7 @@
         <span class="badge" style="background:var(--green);color:var(--blue-dark);">Best Value</span>
         <h3>Complete Christmas Service</h3>
         <p class="pricing-sub">Everything handled for you.</p>
-        <div class="price-table">
-          <div class="price-row bundle-row"><span class="height">Up to 6 ft</span><span class="amount">$219</span><span class="savings">Save $29</span></div>
-          <div class="price-row bundle-row"><span class="height">6–7 ft</span><span class="amount">$259</span><span class="savings">Save $39</span></div>
-          <div class="price-row bundle-row"><span class="height">7–8 ft</span><span class="amount">$289</span><span class="savings">Save $49</span></div>
-          <div class="price-row bundle-row"><span class="height">8–9 ft</span><span class="amount">$329</span><span class="savings">Save $59</span></div>
-          <div class="price-row bundle-row"><span class="height">9–10 ft</span><span class="amount">$399</span><span class="savings">Save $69</span></div>
-        </div>
+        <div class="price-table" data-pricing="bundle"></div>
         <div class="pricing-includes">
           <div><span>&#10003;</span>Everything in Delivery &amp; Setup</div>
           <div><span>&#10003;</span>Everything in Removal and Composting</div>
@@ -200,6 +182,7 @@
     </div>
 
     <p style="text-align:center;font-size:.85rem;color:var(--text-light);margin-top:2rem;">Prices reflect the service, the cost of the tree is not included.</p>
+    <p style="text-align:center;font-size:.85rem;color:var(--text-light);margin-top:.35rem;">Oversize trees over 10 ft may require an extra crew member. We'll confirm the final price when you book.</p>
 
     <!-- Stand Upsell -->
     <div id="stand" style="margin-top:2rem;background:var(--white);border-radius:var(--radius);padding:2rem;border:1.5px solid rgba(198,161,91,.3);max-width:640px;margin-left:auto;margin-right:auto;text-align:center;" data-anim>
@@ -299,7 +282,7 @@
         </select>
       </div>
       <div class="form-row">
-        <div class="form-group"><label for="b-height">Tree Height</label><select id="b-height" name="tree_height"><option value="">Not sure yet</option><option>Up to 6 ft</option><option>6–7 ft</option><option>7–8 ft</option><option>8–9 ft</option><option>9–10 ft</option><option>I have already picked out my tree</option></select></div>
+        <div class="form-group"><label for="b-height">Tree Height</label><select id="b-height" name="tree_height"><option value="">Not sure yet</option><option>I have already picked out my tree</option></select></div>
         <div class="form-group"><label for="b-stand">Tree Stand</label><select id="b-stand" name="tree_stand"><option value="">Not sure</option><option value="I have my own stand">I have my own stand</option><option value="I need a stand">I need a stand (+$55)</option></select></div>
       </div>
       <div class="price-summary" id="price-summary" style="display:none;">

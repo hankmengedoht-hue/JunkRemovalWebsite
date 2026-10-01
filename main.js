@@ -571,13 +571,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- Booking Price Calculator ---- */
+  /* Single source of truth for tree-size tiers and pricing. The pricing cards
+     (services.html) and the b-height dropdown (every page with the booking
+     modal) are both rendered from this object; edit prices/tiers here only. */
+  const PRICING_TIERS = ['8 ft or less', 'Over 8 ft', 'Oversize (over 10 ft)'];
   const PRICING = {
-    delivery: { 'Up to 6 ft': 149, '6–7 ft': 179, '7–8 ft': 199, '8–9 ft': 229, '9–10 ft': 279 },
-    removal:  { 'Up to 6 ft': 99,  '6–7 ft': 119, '7–8 ft': 139, '8–9 ft': 159, '9–10 ft': 189 },
-    bundle:   { 'Up to 6 ft': 219, '6–7 ft': 259, '7–8 ft': 289, '8–9 ft': 329, '9–10 ft': 399 },
-    standFee: 55
+    delivery: { '8 ft or less': 199, 'Over 8 ft': 279, 'Oversize (over 10 ft)': 349 },
+    removal:  { '8 ft or less': 139, 'Over 8 ft': 189, 'Oversize (over 10 ft)': 239 },
+    bundle:   { '8 ft or less': 289, 'Over 8 ft': 399, 'Oversize (over 10 ft)': 499 },
+    standFee: 55,
+    fromTier: 'Oversize (over 10 ft)'
   };
   const money = (n) => (n < 0 ? '−$' + Math.abs(n) : '$' + n);
+  const moneyFrom = (n, isFrom) => (isFrom ? 'From ' : '') + money(n);
+
+  /* ---- Populate tree-height <select> options from PRICING_TIERS ---- */
+  function populateHeightOptions() {
+    document.querySelectorAll('#b-height').forEach((select) => {
+      const notSureOption = select.querySelector('option[value=""]');
+      if (!notSureOption) return;
+      const tierHtml = PRICING_TIERS.map((t) => `<option>${t}</option>`).join('');
+      notSureOption.insertAdjacentHTML('afterend', tierHtml);
+    });
+  }
+
+  /* ---- Populate pricing cards (services.html) from PRICING ---- */
+  function renderPricingCards() {
+    document.querySelectorAll('.price-table[data-pricing]').forEach((table) => {
+      const kind = table.dataset.pricing; // 'delivery' | 'removal' | 'bundle'
+      if (!PRICING[kind]) return;
+      table.innerHTML = PRICING_TIERS.map((tier) => {
+        const amt = PRICING[kind][tier];
+        const isFrom = tier === PRICING.fromTier;
+        const priceText = moneyFrom(amt, isFrom);
+        if (kind === 'bundle') {
+          const separate = PRICING.delivery[tier] + PRICING.removal[tier];
+          const savings = separate - amt;
+          return `<div class="price-row bundle-row"><span class="height">${tier}</span><span class="amount">${priceText}</span><span class="savings">Save $${savings}</span></div>`;
+        }
+        return `<div class="price-row"><span class="height">${tier}</span><span class="amount">${priceText}</span></div>`;
+      }).join('');
+    });
+  }
 
   function initPriceSummary() {
     const serviceEl = document.getElementById('b-service');
@@ -599,22 +634,23 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const isFrom = height === PRICING.fromTier;
       const rows = [];
       let total = 0;
 
       if (service === 'Tree Delivery & Setup') {
-        rows.push(['Delivery &amp; Setup', PRICING.delivery[height]]);
+        rows.push(['Delivery &amp; Setup', PRICING.delivery[height], null, isFrom]);
         total += PRICING.delivery[height];
       } else if (service === 'Removal and Composting') {
-        rows.push(['Removal and Composting', PRICING.removal[height]]);
+        rows.push(['Removal and Composting', PRICING.removal[height], null, isFrom]);
         total += PRICING.removal[height];
       } else if (service === 'Complete Christmas Service (Bundle)') {
         const bundlePrice = PRICING.bundle[height];
         const separatePrice = PRICING.delivery[height] + PRICING.removal[height];
         const savings = separatePrice - bundlePrice;
-        rows.push(['Delivery &amp; Setup', PRICING.delivery[height]]);
-        rows.push(['Removal and Composting', PRICING.removal[height]]);
-        rows.push(['Bundle Savings', -savings, 'savings']);
+        rows.push(['Delivery &amp; Setup', PRICING.delivery[height], null, isFrom]);
+        rows.push(['Removal and Composting', PRICING.removal[height], null, isFrom]);
+        rows.push(['Bundle Savings', -savings, 'savings', false]);
         total = bundlePrice;
       } else {
         summaryEl.style.display = 'none';
@@ -622,14 +658,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (wantsStand) {
-        rows.push(['Tree Stand', PRICING.standFee]);
+        rows.push(['Tree Stand', PRICING.standFee, null, false]);
         total += PRICING.standFee;
       }
 
-      rowsEl.innerHTML = rows.map(([label, amt, cls]) => `
-        <div class="price-row${cls ? ' ' + cls : ''}"><span>${label}</span><span class="amount">${money(amt)}</span></div>
+      rowsEl.innerHTML = rows.map(([label, amt, cls, from]) => `
+        <div class="price-row${cls ? ' ' + cls : ''}"><span>${label}</span><span class="amount">${from ? moneyFrom(amt, true) : money(amt)}</span></div>
       `).join('');
-      totalEl.textContent = money(total);
+      totalEl.textContent = moneyFrom(total, isFrom);
       summaryEl.style.display = 'block';
     }
 
@@ -657,6 +693,8 @@ document.addEventListener('DOMContentLoaded', () => {
   loadReviews();
   loadHomeGallery();
   loadTeam();
+  populateHeightOptions();
+  renderPricingCards();
   loadHomepageBg();
   loadLifestyleBg();
   bindLightboxItems();
