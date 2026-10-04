@@ -471,6 +471,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('img[data-business-logo-alt]').forEach(img => { img.alt = s.business_name + ' logo'; });
       }
 
+      // Logo: used in the header and as the browser tab icon, edit in Admin > Site Settings
+      if (s.logo_image) {
+        const logoPath = s.logo_image.replace(/^\//, '');
+        document.querySelectorAll('img[data-business-logo-alt]').forEach(img => {
+          img.src = logoPath;
+          img.style.display = '';
+        });
+        document.querySelectorAll('link[rel="icon"]').forEach(link => {
+          link.href = logoPath;
+          link.removeAttribute('type');
+        });
+      }
+
       // Hank's phone: update hrefs and visible number text
       if (s.hank_phone_tel) {
         document.querySelectorAll('a[href="tel:+18435550100"]').forEach(a => {

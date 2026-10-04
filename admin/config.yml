@@ -92,6 +92,7 @@ collections:
         file: "_data/settings.json"
         fields:
           - { label: "Business Name", name: "business_name", widget: "string" }
+          - { label: "Logo", name: "logo_image", widget: "image", required: false, hint: "Used in the header and as the browser tab icon. A square-ish image works best for the tab icon; upload the tree + moon mark." }
           - { label: "Hank's Phone", name: "hank_phone", widget: "string", hint: "e.g. (843) 555-0100" }
           - { label: "Hank's Phone (tel: link)", name: "hank_phone_tel", widget: "string", hint: "e.g. +18435550100 — used for call buttons" }
           - { label: "Jacob's Phone", name: "jacob_phone", widget: "string", hint: "e.g. (843) 555-0101" }
