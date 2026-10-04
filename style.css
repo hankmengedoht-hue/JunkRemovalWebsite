@@ -248,6 +248,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   margin-bottom: 1.25rem; font-weight: 300; line-height: 1.65;
   max-width: 54ch;
 }
+.hero-sub .hero-brand { color: var(--green); font-weight: 700; }
 .hero-hassle-line {
   position: relative;
   font-family: var(--font-serif); font-style: italic; color: var(--green);
