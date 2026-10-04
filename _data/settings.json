@@ -1,5 +1,6 @@
 {
   "business_name": "Charleston Tree Concierge",
+  "logo_image": "/images/uploads/icon-white-on-navy.png",
   "hank_phone": "(843) 509-2194",
   "hank_phone_tel": "+18435092194",
   "jacob_phone": "(843) 300-9302",
@@ -8,5 +9,11 @@
   "instagram_url": "",
   "facebook_url": "",
   "formspree_endpoint": "https://formspree.io/f/mwleoypb",
-  "payment_methods": ["Cash", "Card", "Check", "Venmo", "PayPal"]
+  "payment_methods": [
+    "Cash",
+    "Card",
+    "Check",
+    "Venmo",
+    "PayPal"
+  ]
 }
