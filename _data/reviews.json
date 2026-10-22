@@ -1,1 +1,10 @@
-{"reviews": []}
+{
+  "reviews": [
+    {
+      "name": "JB",
+      "rating": 5,
+      "body": "Seamless experience working with Hank and Jacob! Scheduled tree drop off and removal super far in advance! Very helpful service that makes getting a Christmas tree in the house less of a hassle.",
+      "published": true
+    }
+  ]
+}

@@ -3,7 +3,7 @@
    Mobile-First | Charleston, SC Christmas Tree Delivery & Removal
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap&font-display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&family=Parisienne&display=swap&font-display=swap');
 
 /* === CSS Variables === */
 :root {
@@ -371,6 +371,10 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   font-family: var(--font-serif); font-style: italic;
   color: var(--white); font-size: clamp(1.4rem, 3.5vw, 2.1rem);
   line-height: 1.5;
+}
+.lifestyle-content .script-accent {
+  display: block; font-family: 'Parisienne', cursive; font-style: normal;
+  color: var(--green); font-size: 1.7em; line-height: 1.2; margin-top: .15em;
 }
 /* === Services Snapshot === */
 .services-snapshot { padding: var(--section-pad); background: var(--white); }
