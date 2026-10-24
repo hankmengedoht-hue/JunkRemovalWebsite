@@ -592,7 +592,7 @@ document.addEventListener('DOMContentLoaded', () => {
     delivery: { '8 ft or less': 109, '8 to 10 ft': 139, 'Oversize (over 10 ft)': 169 },
     removal:  { '8 ft or less': 99,  '8 to 10 ft': 119, 'Oversize (over 10 ft)': 139 },
     bundle:   { '8 ft or less': 159, '8 to 10 ft': 199, 'Oversize (over 10 ft)': 239 },
-    curbside: 30,
+    curbside: { '8 ft or less': 30, '8 to 10 ft': 30, 'Oversize (over 10 ft)': 45 },
     standFee: 55,
     fromTier: 'Oversize (over 10 ft)'
   };
@@ -652,8 +652,13 @@ document.addEventListener('DOMContentLoaded', () => {
       let totalIsFrom = false;
 
       if (service === 'Curbside Pickup & Composting') {
-        rows.push(['Curbside Pickup &amp; Composting', PRICING.curbside, null, false]);
-        total = PRICING.curbside;
+        const heightPriced = height && PRICING.curbside[height] !== undefined;
+        if (!heightPriced) {
+          summaryEl.style.display = 'none';
+          return;
+        }
+        rows.push(['Curbside Pickup &amp; Composting', PRICING.curbside[height], null, false]);
+        total = PRICING.curbside[height];
       } else {
         const heightPriced = height && PRICING.delivery[height] !== undefined;
         if (!heightPriced) {
