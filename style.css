@@ -441,7 +441,8 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .pricing-includes { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1.5rem; font-size: .85rem; color: var(--text-mid); }
 .pricing-includes span { color: var(--green-dark); font-weight: 700; margin-right: .4rem; }
 .pricing-card .btn { margin-top: auto; }
-@media (min-width: 1024px) { .pricing-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 700px)  { .pricing-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1280px) { .pricing-grid { grid-template-columns: repeat(4, 1fr); } }
 
 /* === Booking Modal Price Summary === */
 .price-summary {
@@ -693,7 +694,6 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .service-full-card p  { font-size: .9rem; flex: 1; }
 .card-cta { display: flex; gap: .75rem; flex-wrap: wrap; }
 @media (min-width: 768px)  { .services-full-grid { grid-template-columns: repeat(2,1fr); } }
-@media (min-width: 1024px) { .services-full-grid { grid-template-columns: repeat(3,1fr); } }
 
 /* === About Page === */
 .about-team { padding: var(--section-pad); background: var(--off-white); }

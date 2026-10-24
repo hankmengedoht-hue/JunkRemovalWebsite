@@ -592,6 +592,7 @@ document.addEventListener('DOMContentLoaded', () => {
     delivery: { '8 ft or less': 109, '8 to 10 ft': 139, 'Oversize (over 10 ft)': 169 },
     removal:  { '8 ft or less': 99,  '8 to 10 ft': 119, 'Oversize (over 10 ft)': 139 },
     bundle:   { '8 ft or less': 159, '8 to 10 ft': 199, 'Oversize (over 10 ft)': 239 },
+    curbside: 30,
     standFee: 55,
     fromTier: 'Oversize (over 10 ft)'
   };
@@ -640,45 +641,57 @@ document.addEventListener('DOMContentLoaded', () => {
       const service = serviceEl.value;
       const height = heightEl.value;
       const wantsStand = standEl.value === 'I need a stand';
-      const heightPriced = height && PRICING.delivery[height] !== undefined;
 
-      if (!service || !heightPriced) {
+      if (!service) {
         summaryEl.style.display = 'none';
         return;
       }
 
-      const isFrom = height === PRICING.fromTier;
       const rows = [];
       let total = 0;
+      let totalIsFrom = false;
 
-      if (service === 'Tree Delivery & Setup') {
-        rows.push(['Delivery &amp; Setup', PRICING.delivery[height], null, isFrom]);
-        total += PRICING.delivery[height];
-      } else if (service === 'Removal and Composting') {
-        rows.push(['Removal and Composting', PRICING.removal[height], null, isFrom]);
-        total += PRICING.removal[height];
-      } else if (service === 'Complete Christmas Service (Bundle)') {
-        const bundlePrice = PRICING.bundle[height];
-        const separatePrice = PRICING.delivery[height] + PRICING.removal[height];
-        const savings = separatePrice - bundlePrice;
-        rows.push(['Delivery &amp; Setup', PRICING.delivery[height], null, isFrom]);
-        rows.push(['Removal and Composting', PRICING.removal[height], null, isFrom]);
-        rows.push(['Bundle Savings', -savings, 'savings', false]);
-        total = bundlePrice;
+      if (service === 'Curbside Pickup & Composting') {
+        rows.push(['Curbside Pickup &amp; Composting', PRICING.curbside, null, false]);
+        total = PRICING.curbside;
       } else {
-        summaryEl.style.display = 'none';
-        return;
-      }
+        const heightPriced = height && PRICING.delivery[height] !== undefined;
+        if (!heightPriced) {
+          summaryEl.style.display = 'none';
+          return;
+        }
+        const isFrom = height === PRICING.fromTier;
+        totalIsFrom = isFrom;
 
-      if (wantsStand) {
-        rows.push(['Tree Stand', PRICING.standFee, null, false]);
-        total += PRICING.standFee;
+        if (service === 'Tree Delivery & Setup') {
+          rows.push(['Delivery &amp; Setup', PRICING.delivery[height], null, isFrom]);
+          total += PRICING.delivery[height];
+        } else if (service === 'Removal and Composting') {
+          rows.push(['Removal and Composting', PRICING.removal[height], null, isFrom]);
+          total += PRICING.removal[height];
+        } else if (service === 'Complete Christmas Service (Bundle)') {
+          const bundlePrice = PRICING.bundle[height];
+          const separatePrice = PRICING.delivery[height] + PRICING.removal[height];
+          const savings = separatePrice - bundlePrice;
+          rows.push(['Delivery &amp; Setup', PRICING.delivery[height], null, isFrom]);
+          rows.push(['Removal and Composting', PRICING.removal[height], null, isFrom]);
+          rows.push(['Bundle Savings', -savings, 'savings', false]);
+          total = bundlePrice;
+        } else {
+          summaryEl.style.display = 'none';
+          return;
+        }
+
+        if (wantsStand) {
+          rows.push(['Tree Stand', PRICING.standFee, null, false]);
+          total += PRICING.standFee;
+        }
       }
 
       rowsEl.innerHTML = rows.map(([label, amt, cls, from]) => `
         <div class="price-row${cls ? ' ' + cls : ''}"><span>${label}</span><span class="amount">${from ? moneyFrom(amt, true) : money(amt)}</span></div>
       `).join('');
-      totalEl.textContent = moneyFrom(total, isFrom);
+      totalEl.textContent = moneyFrom(total, totalIsFrom);
       summaryEl.style.display = 'block';
     }
 
