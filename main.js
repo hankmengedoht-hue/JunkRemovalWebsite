@@ -564,29 +564,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ---- Homepage Lifestyle Section Image ---- */
-  async function loadLifestyleBg() {
-    const img = document.getElementById('lifestyle-img');
-    const placeholder = document.getElementById('lifestyle-placeholder');
-    if (!img) return;
-    try {
-      const res = await fetch('_data/homepage-lifestyle.json', { cache: 'no-cache' });
-      const data = await res.json();
-      const normPath = (p) => p ? p.replace(/^\//, '') : '';
-      const path = normPath(data.image);
-      if (path) {
-        img.src = path;
-        img.style.display = 'block';
-        if (placeholder) placeholder.style.display = 'none';
-      } else {
-        img.style.display = 'none';
-        if (placeholder) placeholder.style.display = 'flex';
-      }
-    } catch {
-      // silently keep placeholder
-    }
-  }
-
   /* ---- Booking Price Calculator ---- */
   /* Single source of truth for tree-size tiers and pricing. The pricing cards
      (services.html) and the b-height dropdown (every page with the booking
@@ -731,7 +708,6 @@ document.addEventListener('DOMContentLoaded', () => {
   populateHeightOptions();
   renderPricingCards();
   loadHomepageBg();
-  loadLifestyleBg();
   bindLightboxItems();
   initFaqAccordion();
   initPriceSummary();

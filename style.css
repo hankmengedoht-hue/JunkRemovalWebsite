@@ -3,7 +3,7 @@
    Mobile-First | Charleston, SC Christmas Tree Delivery & Removal
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&family=Parisienne&display=swap&font-display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap&font-display=swap');
 
 /* === CSS Variables === */
 :root {
@@ -279,7 +279,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 @media (min-width: 1200px) { .hero-text-panel { padding: 4rem 5rem; } }
 
 /* === About Snapshot === */
-.about-snapshot { padding: var(--section-pad); background: var(--off-white); }
+.about-snapshot { padding: var(--section-pad); background: var(--white); }
 .about-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: center; }
 .about-photo-wrap {
   position: relative; border-radius: var(--radius); overflow: hidden;
@@ -350,32 +350,6 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 @media (min-width: 640px) { .white-glove-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .white-glove-grid { grid-template-columns: repeat(4, 1fr); } }
 
-/* === Immersive Lifestyle Section === */
-.lifestyle-section {
-  position: relative; min-height: 62vh;
-  display: flex; align-items: center; justify-content: center;
-  text-align: center; overflow: hidden; background: var(--blue-dark);
-}
-.lifestyle-section img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; z-index: 1;
-}
-.lifestyle-overlay {
-  position: absolute; inset: 0; z-index: 2;
-  background: linear-gradient(180deg, rgba(11,36,24,.55) 0%, rgba(11,36,24,.72) 100%);
-}
-.lifestyle-content {
-  position: relative; z-index: 3; max-width: 640px; padding: 2rem 1.5rem;
-}
-.lifestyle-content p {
-  font-family: var(--font-serif); font-style: italic;
-  color: var(--white); font-size: clamp(1.4rem, 3.5vw, 2.1rem);
-  line-height: 1.5;
-}
-.lifestyle-content .script-accent {
-  display: block; font-family: 'Parisienne', cursive; font-style: normal;
-  color: var(--green); font-size: 1.7em; line-height: 1.2; margin-top: .15em;
-}
 /* === Services Snapshot === */
 .services-snapshot { padding: var(--section-pad); background: var(--white); }
 .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
