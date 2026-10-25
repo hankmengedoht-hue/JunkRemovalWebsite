@@ -100,7 +100,7 @@ collections:
           - { label: "Email Address", name: "email", widget: "string" }
           - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full URL e.g. https://instagram.com/charlestontreeconcierge" }
           - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false, hint: "Full URL e.g. https://facebook.com/charlestontreeconcierge" }
-          - { label: "Formspree Endpoint", name: "formspree_endpoint", widget: "string", required: false, hint: "Paste your Formspree form URL e.g. https://formspree.io/f/xabcdef" }
+          - { label: "Form Endpoint", name: "form_endpoint", widget: "string", required: false, hint: "Where the site forms are sent. Leave as https://forms.charlestontreeconcierge.com unless you move the form handler." }
           - label: "Accepted Payment Methods"
             name: "payment_methods"
             widget: "list"

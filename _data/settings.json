@@ -8,7 +8,7 @@
   "email": "hankmengedoht@gmail.com",
   "instagram_url": "",
   "facebook_url": "",
-  "formspree_endpoint": "https://formspree.io/f/mwleoypb",
+  "form_endpoint": "https://forms.charlestontreeconcierge.com",
   "payment_methods": [
     "Cash",
     "Card",

@@ -2,9 +2,9 @@
    Charleston Tree Concierge | Main JavaScript
    ========================================== */
 
-// Formspree endpoint: replace with your real ID after signing up at formspree.io
-// Get yours at: https://formspree.io, New Form, copy the endpoint URL
-let FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+// Form endpoint: our own Cloudflare Worker (see forms-worker/ in this repo).
+// Can be overridden in Admin > Site Settings > Form Endpoint.
+let FORM_ENDPOINT = 'https://forms.charlestontreeconcierge.com';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -61,23 +61,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* ---- Formspree Form Submission ---- */
-  async function submitToFormspree(form, successHTML) {
+  /* ---- Form Submission ---- */
+  async function submitForm(form, successHTML) {
     const btn = form.querySelector('button[type="submit"]');
     const originalText = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
 
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const fd = new FormData(form);
+      fd.set('_form', form.id);
+      fd.set('_page', location.pathname);
+      const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
-        body: new FormData(form),
+        body: fd,
         headers: { 'Accept': 'application/json' }
       });
 
       if (res.ok) {
         form.innerHTML = successHTML;
       } else {
-        const data = await res.json();
+        const data = await res.json().catch(() => ({}));
         const msg = data?.errors?.map(e => e.message).join(', ') || 'Something went wrong. Please try again or call us directly.';
         if (btn) { btn.disabled = false; btn.textContent = originalText; }
         showFormError(form, msg);
@@ -114,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (bookingForm) {
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      submitToFormspree(bookingForm, successHTML(
+      submitForm(bookingForm, successHTML(
         'Request Received!',
         "We'll contact you within 1 hour to confirm your Christmas tree service. For faster service, call or text us directly."
       ));
@@ -126,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      submitToFormspree(contactForm, successHTML(
+      submitForm(contactForm, successHTML(
         'Message Sent!',
         "Thanks for reaching out. We typically respond within a few hours. You can also call or text us for a faster response."
       ));
@@ -138,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (reviewForm) {
     reviewForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      submitToFormspree(reviewForm, successHTML(
+      submitForm(reviewForm, successHTML(
         "Thanks for Your Review!",
         "We appreciate your feedback. It means the world to us as a small, local business."
       ));
@@ -455,14 +458,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /* ---- Settings Loader (phones, email, social, Formspree) ---- */
+  /* ---- Settings Loader (phones, email, social, form endpoint) ---- */
   async function loadSettings() {
     try {
       const res = await fetch('_data/settings.json', { cache: 'no-cache' });
       const s = await res.json();
 
-      // Formspree endpoint
-      if (s.formspree_endpoint) FORMSPREE_ENDPOINT = s.formspree_endpoint;
+      // Form endpoint (ignores an old Formspree URL if one is still saved)
+      const ep = s.form_endpoint || '';
+      if (ep && !ep.includes('formspree.io')) FORM_ENDPOINT = ep;
 
       // Business name: single source of truth, edit in Admin > Site Settings
       if (s.business_name) {

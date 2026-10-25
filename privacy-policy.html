@@ -100,8 +100,8 @@
       <p>We do <strong>not</strong> sell, rent, or trade your personal information to third parties.</p>
 
       <h2>Form Processing</h2>
-      <p>Our website uses <strong>Formspree</strong> to process and deliver form submissions. When you submit information through one of our forms, the information you provide may be transmitted to and processed by Formspree in order to deliver it to us.</p>
-      <p>Formspree's handling of information is subject to its own privacy practices and policies.</p>
+      <p>Form submissions on our website are processed by our own form handler running on <strong>Cloudflare</strong> and delivered to us by email. The information you submit is used only to respond to you and provide our services.</p>
+      <p>Cloudflare's handling of information is subject to its own privacy practices and policies.</p>
 
       <h2>How We Protect Your Information</h2>
       <p>We take reasonable measures to protect personal information submitted through our website from unauthorized access, use, or disclosure.</p>
@@ -115,7 +115,7 @@
       <p>The only information we collect is what you voluntarily submit through our booking, contact, or review forms. If that changes in the future, this Privacy Policy will be updated to describe those practices.</p>
 
       <h2>Third-Party Services</h2>
-      <p>Our website may use third-party services necessary to operate the website or process information submitted through it, such as Formspree and our website host. These third parties may process information in accordance with their own privacy policies.</p>
+      <p>Our website may use third-party services necessary to operate the website or process information submitted through it, such as Cloudflare and our website host. These third parties may process information in accordance with their own privacy policies.</p>
       <p>We do not control the privacy practices of third-party services and encourage you to review their policies when appropriate.</p>
 
       <h2>Children's Privacy</h2>
@@ -202,6 +202,7 @@
       <button class="modal-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
     <form id="booking-form" novalidate>
+      <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"><label>Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
       <div class="form-row">
         <div class="form-group"><label for="b-name">Your Name *</label><input type="text" id="b-name" name="name" placeholder="Jane Smith" required autocomplete="name"></div>
         <div class="form-group"><label for="b-phone">Phone *</label><input type="tel" id="b-phone" name="phone" placeholder="(843) 000-0000" required autocomplete="tel"></div>

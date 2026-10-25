@@ -1,0 +1,43 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "charlestontreeconcierge-forms",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": false,
+
+  // Serves the Worker at https://forms.charlestontreeconcierge.com
+  // (Cloudflare creates the DNS record automatically on deploy)
+  "routes": [
+    { "pattern": "forms.charlestontreeconcierge.com", "custom_domain": true }
+  ],
+
+  // Email sending. Locked to these recipients so the Worker can never be
+  // used to email anyone else. Every address here must also be verified
+  // under Email Routing > Destination addresses (that keeps it free).
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "allowed_destination_addresses": [
+        "charlestontreeconcierge@gmail.com",
+        "hankmengedoht@gmail.com",
+        "jacobsomsky@gmail.com"
+      ]
+    }
+  ],
+
+  "vars": {
+    "FROM_EMAIL": "forms@charlestontreeconcierge.com",
+    "FROM_NAME": "Charleston Tree Concierge",
+
+    // Who gets each form (comma-separated). TO_DEFAULT is used for any form
+    // without its own entry. Uncomment the per-form ones to split them up.
+    "TO_DEFAULT": "charlestontreeconcierge@gmail.com,hankmengedoht@gmail.com,jacobsomsky@gmail.com",
+    // "TO_BOOKING": "charlestontreeconcierge@gmail.com,hankmengedoht@gmail.com,jacobsomsky@gmail.com",
+    // "TO_CONTACT": "charlestontreeconcierge@gmail.com,hankmengedoht@gmail.com,jacobsomsky@gmail.com",
+    // "TO_REVIEW": "charlestontreeconcierge@gmail.com,hankmengedoht@gmail.com,jacobsomsky@gmail.com",
+
+    "ALLOWED_ORIGINS": "https://charlestontreeconcierge.com,https://www.charlestontreeconcierge.com,https://hankmengedoht-hue.github.io"
+  },
+
+  "observability": { "enabled": true }
+}
