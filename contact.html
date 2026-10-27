@@ -154,13 +154,47 @@
 
       <!-- Contact Form Column -->
       <div>
-        <div class="contact-form-card" data-anim data-anim-delay="1" style="text-align:center;">
+        <div class="contact-form-card" data-anim data-anim-delay="1">
           <h3>Let's Get Your Tree Booked</h3>
-          <p style="margin-bottom:1.5rem;color:var(--text-mid);">Tell us about your tree, your address, and when you need us. We'll follow up with a real, upfront price.</p>
-          <div class="response-note" style="margin-bottom:1.5rem;">&#9889; We typically respond as soon as possible during business hours (7am&ndash;8pm daily).</div>
-          <button class="btn btn-primary btn-lg" data-modal="booking-modal" style="width:100%;justify-content:center;margin-bottom:1rem;">Book Your Tree</button>
-          <a href="tel:+18435550100" class="btn btn-green btn-lg" style="width:100%;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01z"/></svg>Call Now</a>
+          <form id="contact-form" novalidate>
+            <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"><label>Leave this empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+            <div class="form-row">
+              <div class="form-group"><label for="ic-name">Your Name *</label><input type="text" id="ic-name" name="name" placeholder="Jane Smith" required autocomplete="name"></div>
+              <div class="form-group"><label for="ic-phone">Phone *</label><input type="tel" id="ic-phone" name="phone" placeholder="(843) 000-0000" required autocomplete="tel"></div>
+            </div>
+            <div class="form-group"><label for="ic-email">Email Address</label><input type="email" id="ic-email" name="email" placeholder="you@email.com" autocomplete="email"></div>
+            <div class="form-group"><label for="ic-address">Service Address *</label><input type="text" id="ic-address" name="address" placeholder="123 Oak St, Charleston, SC 29401" required autocomplete="street-address"></div>
+            <div class="form-group">
+              <label for="ic-service">What Do You Need? *</label>
+              <select id="ic-service" name="service" required>
+                <option value="">Select a service</option>
+                <option>Tree Delivery &amp; Setup</option>
+                <option>Removal and Composting</option>
+                <option>Complete Christmas Service (Bundle)</option>
+                <option>Curbside Pickup &amp; Composting</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="ic-height">Tree Height</label><select id="ic-height" name="tree_height"><option value="">Not sure yet</option></select></div>
+              <div class="form-group"><label for="ic-stand">Tree Stand</label><select id="ic-stand" name="tree_stand"><option value="">Not sure</option><option value="I have my own stand">I have my own stand</option><option value="I need a stand">I need a stand (+$55)</option></select></div>
+            </div>
+            <div class="price-summary" id="ic-price-summary" style="display:none;">
+              <h4>Estimated Price</h4>
+              <div id="ic-price-rows"></div>
+              <div class="price-total"><span>Total</span><span id="ic-price-total-amount">$0</span></div>
+              <p class="price-note">Final price confirmed when we discuss your tree.</p>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="ic-date">Preferred Date</label><input type="date" id="ic-date" name="date"></div>
+              <div class="form-group"><label for="ic-time">Preferred Time</label><select id="ic-time" name="time"><option value="">Any time</option><option>Morning (7am&ndash;12pm)</option><option>Afternoon (12pm&ndash;5pm)</option><option>Evening (5pm&ndash;8pm)</option></select></div>
+            </div>
+            <div class="form-group"><label for="ic-notes">Details</label><textarea id="ic-notes" name="notes" placeholder="Placement preferences, access instructions, etc."></textarea></div>
+            <div class="response-note" style="margin-bottom:1.25rem;">&#9889; We typically respond as soon as possible during business hours (7am&ndash;8pm daily).</div>
+            <button type="submit" class="btn btn-primary form-submit" style="width:100%;justify-content:center;">Book Your Tree</button>
+          </form>
         </div>
+
+        <a href="tel:+18435550100" class="btn btn-green btn-lg" style="width:100%;justify-content:center;margin-top:1.25rem;" data-anim><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.47 11.47 0 003.59.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.47 11.47 0 00.57 3.59 1 1 0 01-.25 1.01z"/></svg>Call Now</a>
       </div>
     </div>
   </div>

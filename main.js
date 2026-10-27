@@ -130,8 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       submitForm(contactForm, successHTML(
-        'Message Sent!',
-        "Thanks for reaching out. We typically respond within a few hours. You can also call or text us for a faster response."
+        'Request Received!',
+        "We'll contact you as soon as possible to confirm your Christmas tree service. For faster service, call or text us directly."
       ));
     });
   }
@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- Populate tree-height <select> options from PRICING_TIERS ---- */
   function populateHeightOptions() {
-    document.querySelectorAll('#b-height').forEach((select) => {
+    document.querySelectorAll('select[name="tree_height"]').forEach((select) => {
       const notSureOption = select.querySelector('option[value=""]');
       if (!notSureOption) return;
       const tierHtml = PRICING_TIERS.map((t) => `<option>${t}</option>`).join('');
@@ -609,13 +609,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  function initPriceSummary() {
-    const serviceEl = document.getElementById('b-service');
-    const heightEl = document.getElementById('b-height');
-    const standEl = document.getElementById('b-stand');
-    const summaryEl = document.getElementById('price-summary');
-    const rowsEl = document.getElementById('price-rows');
-    const totalEl = document.getElementById('price-total-amount');
+  function initPriceSummary(ids) {
+    ids = ids || { service: 'b-service', height: 'b-height', stand: 'b-stand', summary: 'price-summary', rows: 'price-rows', total: 'price-total-amount' };
+    const serviceEl = document.getElementById(ids.service);
+    const heightEl = document.getElementById(ids.height);
+    const standEl = document.getElementById(ids.stand);
+    const summaryEl = document.getElementById(ids.summary);
+    const rowsEl = document.getElementById(ids.rows);
+    const totalEl = document.getElementById(ids.total);
     if (!serviceEl || !heightEl || !standEl || !summaryEl || !rowsEl || !totalEl) return;
 
     function render() {
@@ -711,5 +712,8 @@ document.addEventListener('DOMContentLoaded', () => {
   bindLightboxItems();
   initFaqAccordion();
   initPriceSummary();
+  if (document.getElementById('ic-service')) {
+    initPriceSummary({ service: 'ic-service', height: 'ic-height', stand: 'ic-stand', summary: 'ic-price-summary', rows: 'ic-price-rows', total: 'ic-price-total-amount' });
+  }
 
 });
