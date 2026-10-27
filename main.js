@@ -522,10 +522,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Social links: set real URL or hide if empty
       document.querySelectorAll('a[aria-label*="Instagram"]').forEach(a => {
-        if (s.instagram_url) a.href = s.instagram_url; else a.style.display = 'none';
+        if (s.instagram_url) { a.href = s.instagram_url; a.target = '_blank'; a.rel = 'noopener'; } else { a.style.display = 'none'; }
       });
       document.querySelectorAll('a[aria-label*="Facebook"]').forEach(a => {
-        if (s.facebook_url) a.href = s.facebook_url; else a.style.display = 'none';
+        if (s.facebook_url) { a.href = s.facebook_url; a.target = '_blank'; a.rel = 'noopener'; } else { a.style.display = 'none'; }
       });
 
       // Payment methods section
