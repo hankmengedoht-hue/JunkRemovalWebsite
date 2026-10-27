@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       submitForm(bookingForm, successHTML(
         'Request Received!',
-        "We'll contact you within 1 hour to confirm your Christmas tree service. For faster service, call or text us directly."
+        "We'll contact you as soon as possible to confirm your Christmas tree service. For faster service, call or text us directly."
       ));
     });
   }
