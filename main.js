@@ -438,11 +438,23 @@ document.addEventListener('DOMContentLoaded', () => {
         el.textContent = text;
       };
 
+      const setParagraphs = (id, text) => {
+        const el = document.getElementById(id);
+        if (!el || !text) return;
+        el.innerHTML = '';
+        text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean).forEach(p => {
+          const para = document.createElement('p');
+          para.textContent = p;
+          el.appendChild(para);
+        });
+      };
+
       setPhoto('hank-photo',  data.hank_photo,  'Hank');
       setPhoto('jacob-photo', data.jacob_photo, 'Jacob');
       setPhoto('team-photo',  data.team_photo,  'Hank and Jacob');
       setBio('hank-bio',  data.hank_bio);
       setBio('jacob-bio', data.jacob_bio);
+      setParagraphs('about-team-intro', data.about_intro);
 
       // Home page team photo (dedicated img tag, not a placeholder div)
       const homeImg = document.getElementById('home-team-photo');
