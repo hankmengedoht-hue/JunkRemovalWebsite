@@ -580,14 +580,14 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Single source of truth for tree-size tiers and pricing. The pricing cards
      (services.html) and the b-height dropdown (every page with the booking
      modal) are both rendered from this object; edit prices/tiers here only. */
-  const PRICING_TIERS = ['8 ft or less', '8 to 10 ft', 'Oversize (over 10 ft)'];
+  const PRICING_TIERS = ['7 ft or less', '7 to 9 ft', 'Oversize (over 9 ft)'];
   const PRICING = {
-    delivery: { '8 ft or less': 110, '8 to 10 ft': 140, 'Oversize (over 10 ft)': 170 },
-    removal:  { '8 ft or less': 100, '8 to 10 ft': 120, 'Oversize (over 10 ft)': 140 },
-    bundle:   { '8 ft or less': 160, '8 to 10 ft': 200, 'Oversize (over 10 ft)': 240 },
-    curbside: { '8 ft or less': 30, '8 to 10 ft': 30, 'Oversize (over 10 ft)': 45 },
+    delivery: { '7 ft or less': 110, '7 to 9 ft': 140, 'Oversize (over 9 ft)': 170 },
+    removal:  { '7 ft or less': 100, '7 to 9 ft': 120, 'Oversize (over 9 ft)': 140 },
+    bundle:   { '7 ft or less': 160, '7 to 9 ft': 200, 'Oversize (over 9 ft)': 240 },
+    curbside: { '7 ft or less': 30, '7 to 9 ft': 30, 'Oversize (over 9 ft)': 45 },
     standFee: 55,
-    fromTier: 'Oversize (over 10 ft)'
+    fromTier: 'Oversize (over 9 ft)'
   };
   const money = (n) => (n < 0 ? '−$' + Math.abs(n) : '$' + n);
   const moneyFrom = (n, isFrom) => (isFrom ? 'From ' : '') + money(n);
