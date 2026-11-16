@@ -19,7 +19,7 @@
   <meta name="twitter:image"       content="https://charlestontreeconcierge.com/images/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20261116d">
+  <link rel="stylesheet" href="style.css?v=20261116e">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 <body>
@@ -267,7 +267,7 @@
       <div class="form-group"><label for="b-email">Email Address *</label><input type="email" id="b-email" name="email" placeholder="you@email.com" required autocomplete="email"></div>
       <div class="form-group"><label for="b-address">Service Address *</label><input type="text" id="b-address" name="address" placeholder="123 Oak St, Charleston, SC 29401" required autocomplete="street-address"></div>
       <div class="form-group">
-        <label for="b-service">What Do You Need? *</label>
+        <label for="b-service">Select a Service *</label>
         <select id="b-service" name="service" required>
           <option value="">Select a service</option>
           <option>Tree Delivery &amp; Setup</option>
@@ -276,11 +276,11 @@
           <option>Curbside Pickup &amp; Composting</option>
         </select>
       </div>
-      <div class="form-group"><label for="b-selection">Who will select my tree?</label><select id="b-selection" name="tree_selection"><option value="">Not sure yet</option><option>I will pick out a tree at my preferred lot</option><option>CTC will pick out a tree based on my specifications</option></select></div>
       <div class="form-row">
-        <div class="form-group"><label for="b-height">Tree Height</label><select id="b-height" name="tree_height"><option value="">Not sure yet</option></select></div>
-        <div class="form-group"><label for="b-stand">Tree Stand</label><select id="b-stand" name="tree_stand"><option value="">Not sure</option><option value="I have my own stand">I have my own stand</option><option value="I need a stand">I need a stand (+$55)</option></select></div>
+        <div class="form-group"><label for="b-height">Tree Height</label><input type="text" id="b-height" name="tree_height" placeholder="e.g. 9 ft" autocomplete="off"></div>
+        <div class="form-group"><label for="b-stand">Do you need a tree stand?</label><select id="b-stand" name="tree_stand"><option value="">Not sure</option><option value="I have my own stand">I have my own stand</option><option value="I need a stand">I need a stand (+$55)</option></select></div>
       </div>
+      <div class="form-group"><label for="b-selection">Who will select my tree?</label><select id="b-selection" name="tree_selection"><option value="">Not sure yet</option><option>I will pick out a tree at my preferred lot</option><option>CTC will pick out a tree based on my specifications</option></select></div>
       <div class="price-summary" id="price-summary" style="display:none;">
         <h4>Estimated Price</h4>
         <div id="price-rows"></div>
@@ -298,6 +298,6 @@
 </div>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script src="main.js?v=20261116d"></script>
+<script src="main.js?v=20261116e"></script>
 </body>
 </html>

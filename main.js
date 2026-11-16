@@ -578,8 +578,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---- Booking Price Calculator ---- */
   /* Single source of truth for tree-size tiers and pricing. The pricing cards
-     (services.html) and the b-height dropdown (every page with the booking
-     modal) are both rendered from this object; edit prices/tiers here only. */
+     (services.html) are rendered from this object, and the typed tree height in
+     the booking forms is mapped onto these tiers by heightToTier(); edit prices/tiers here only. */
   const PRICING_TIERS = ['7 ft or less', '7 to 9 ft', 'Oversize (over 9 ft)'];
   const PRICING = {
     delivery: { '7 ft or less': 150, '7 to 9 ft': 175, 'Oversize (over 9 ft)': 200 },
@@ -592,14 +592,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const money = (n) => (n < 0 ? '−$' + Math.abs(n) : '$' + n);
   const moneyFrom = (n, isFrom) => (isFrom ? 'From ' : '') + money(n);
 
-  /* ---- Populate tree-height <select> options from PRICING_TIERS ---- */
-  function populateHeightOptions() {
-    document.querySelectorAll('select[name="tree_height"]').forEach((select) => {
-      const notSureOption = select.querySelector('option[value=""]');
-      if (!notSureOption) return;
-      const tierHtml = PRICING_TIERS.map((t) => `<option>${t}</option>`).join('');
-      notSureOption.insertAdjacentHTML('afterend', tierHtml);
-    });
+  /* ---- Map a typed tree height (e.g. "9 ft", "7.5", "8'6\"") to a pricing tier ---- */
+  function heightToTier(text) {
+    const m = String(text || '').match(/(\d+(?:\.\d+)?)\s*(?:'|ft|feet|foot)?\s*(?:(\d+(?:\.\d+)?)\s*(?:"|in|inch|inches)?)?/i);
+    if (!m) return '';
+    let feet = parseFloat(m[1]);
+    if (m[2] !== undefined) feet += parseFloat(m[2]) / 12;
+    if (!(feet >= 2 && feet <= 30)) return '';
+    if (feet <= 7) return PRICING_TIERS[0];
+    if (feet <= 9) return PRICING_TIERS[1];
+    return PRICING_TIERS[2];
   }
 
   /* ---- Populate pricing cards (services.html) from PRICING ---- */
@@ -633,7 +635,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function render() {
       const service = serviceEl.value;
-      const height = heightEl.value;
+      const height = heightToTier(heightEl.value);
       const wantsStand = standEl.value === 'I need a stand';
 
       if (!service) {
@@ -681,6 +683,8 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
+        rows[0][0] += ` (${height.replace(/^Oversize \((.*)\)$/, '$1')})`;
+
         if (wantsStand) {
           rows.push(['Tree Stand', PRICING.standFee, null, false]);
           total += PRICING.standFee;
@@ -694,7 +698,7 @@ document.addEventListener('DOMContentLoaded', () => {
       summaryEl.style.display = 'block';
     }
 
-    [serviceEl, heightEl, standEl].forEach(el => el.addEventListener('change', render));
+    [serviceEl, heightEl, standEl].forEach(el => { el.addEventListener('change', render); el.addEventListener('input', render); });
     render();
   }
 
@@ -718,7 +722,6 @@ document.addEventListener('DOMContentLoaded', () => {
   loadReviews();
   loadHomeGallery();
   loadTeam();
-  populateHeightOptions();
   renderPricingCards();
   loadHomepageBg();
   bindLightboxItems();
