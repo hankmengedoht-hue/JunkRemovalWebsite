@@ -528,7 +528,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (s.email) {
         document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
           a.href = `mailto:${s.email}`;
-          if (a.textContent.includes('@')) a.textContent = s.email;
+          if (a.textContent.includes('@')) {
+            // Let long addresses wrap before the @ on narrow screens
+            const [user, domain] = s.email.split('@');
+            a.textContent = user;
+            if (domain !== undefined) a.append(document.createElement('wbr'), '@' + domain);
+          }
         });
       }
 
