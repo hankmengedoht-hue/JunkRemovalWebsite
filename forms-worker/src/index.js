@@ -25,6 +25,7 @@ const FIELD_LABELS = {
   service: 'Service',
   tree_height: 'Tree height',
   tree_stand: 'Tree stand',
+  tree_selection: 'Who selects the tree',
   date: 'Preferred date',
   time: 'Preferred time',
   notes: 'Notes',
