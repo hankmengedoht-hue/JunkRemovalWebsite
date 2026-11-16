@@ -582,9 +582,9 @@ document.addEventListener('DOMContentLoaded', () => {
      modal) are both rendered from this object; edit prices/tiers here only. */
   const PRICING_TIERS = ['7 ft or less', '7 to 9 ft', 'Oversize (over 9 ft)'];
   const PRICING = {
-    delivery: { '7 ft or less': 130, '7 to 9 ft': 160, 'Oversize (over 9 ft)': 190 },
-    removal:  { '7 ft or less': 120, '7 to 9 ft': 140, 'Oversize (over 9 ft)': 160 },
-    bundle:   { '7 ft or less': 200, '7 to 9 ft': 240, 'Oversize (over 9 ft)': 280 },
+    delivery: { '7 ft or less': 150, '7 to 9 ft': 175, 'Oversize (over 9 ft)': 200 },
+    removal:  { '7 ft or less': 125, '7 to 9 ft': 150, 'Oversize (over 9 ft)': 175 },
+    bundle:   { '7 ft or less': 250, '7 to 9 ft': 285, 'Oversize (over 9 ft)': 320 },
     curbside: { '7 ft or less': 50, '7 to 9 ft': 50, 'Oversize (over 9 ft)': 65 },
     standFee: 55,
     fromTier: 'Oversize (over 9 ft)'
