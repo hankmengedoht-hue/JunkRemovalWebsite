@@ -99,8 +99,8 @@ To make them actually send emails to you, use **Formspree** (free):
 
 ## What to Update Before Going Live
 
-- [ ] Replace `(843) 555-0100` with Hank's real number
-- [ ] Replace `(843) 555-0101` with Jacob's real number
+- [x] Replace `(843) 555-0100` with Hank's real number
+- [x] Replace `(843) 555-0101` with Jacob's real number
 - [x] Replace `hello@palmettohaul.com` with your real email (set in `_data/settings.json`)
 - [x] Custom domain `charlestontreeconcierge.com` is live via the `CNAME` file
 - [ ] Add your logo to `images/logo.png`

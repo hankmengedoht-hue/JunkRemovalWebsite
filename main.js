@@ -500,29 +500,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Hank's phone: update hrefs and visible number text
-      if (s.hank_phone_tel) {
-        document.querySelectorAll('a[href="tel:+18435550100"]').forEach(a => {
-          a.href = `tel:${s.hank_phone_tel}`;
-          if (s.hank_phone && a.textContent.trim() === '(843) 555-0100') a.textContent = s.hank_phone;
-        });
-        document.querySelectorAll('a[href="sms:+18435550100"]').forEach(a => {
-          a.href = `sms:${s.hank_phone_tel}`;
-        });
-        if (s.hank_phone) document.querySelectorAll('[data-hank-phone]').forEach(el => { el.textContent = s.hank_phone; });
-      }
-
-      // Jacob's phone
-      if (s.jacob_phone_tel) {
-        document.querySelectorAll('a[href="tel:+18435550101"]').forEach(a => {
-          a.href = `tel:${s.jacob_phone_tel}`;
-          if (s.jacob_phone && a.textContent.trim() === '(843) 555-0101') a.textContent = s.jacob_phone;
-        });
-        document.querySelectorAll('a[href="sms:+18435550101"]').forEach(a => {
-          a.href = `sms:${s.jacob_phone_tel}`;
-        });
-        if (s.jacob_phone) document.querySelectorAll('[data-jacob-phone]').forEach(el => { el.textContent = s.jacob_phone; });
-      }
+      // Phones: every call/text link is tagged data-phone="hank" or "jacob" and
+      // already holds the real number; this keeps them in sync with Admin > Site Settings.
+      const phoneText = /^\(?\d{3}\)?[\s.-]?\d{3}[\s.-]\d{4}$/;
+      [['hank', s.hank_phone_tel, s.hank_phone], ['jacob', s.jacob_phone_tel, s.jacob_phone]].forEach(([who, tel, display]) => {
+        if (tel) {
+          document.querySelectorAll(`a[data-phone="${who}"]`).forEach(a => {
+            const scheme = a.getAttribute('href').startsWith('sms:') ? 'sms:' : 'tel:';
+            a.href = scheme + tel;
+            if (display && phoneText.test(a.textContent.trim())) a.textContent = display;
+          });
+        }
+        if (display) document.querySelectorAll(`[data-${who}-phone]`).forEach(el => { el.textContent = display; });
+      });
 
       // Email
       if (s.email) {
