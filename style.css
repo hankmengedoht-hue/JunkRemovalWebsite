@@ -394,10 +394,11 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
   margin: 0; white-space: nowrap; z-index: 2;
 }
 .pricing-card h3 { color: var(--blue); margin-bottom: .3rem; min-height: 3.3rem; }
+@media (min-width: 1280px) { .pricing-card h3 { font-size: 1.25rem; } }
 .pricing-card .pricing-sub { font-size: .85rem; color: var(--text-light); margin-bottom: 1.25rem; min-height: 1.3rem; }
 .price-table { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.25rem; }
 .price-row {
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; gap: .6rem;
   padding: .55rem .85rem; border-radius: var(--radius-sm);
   background: var(--off-white); font-family: var(--font-head); font-size: .88rem;
 }
@@ -432,7 +433,7 @@ p  { font-size: 1rem; color: var(--text-mid); line-height: 1.75; }
 .price-summary .price-row { background: transparent; padding: .3rem 0; font-size: .87rem; }
 .price-summary .price-row.savings .amount { color: var(--burgundy); }
 .price-summary .price-total {
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; gap: .6rem;
   border-top: 1.5px solid rgba(198,161,91,.4); margin-top: .4rem; padding-top: .6rem;
   font-family: var(--font-head); font-weight: 800; color: var(--blue); font-size: 1.05rem;
 }
