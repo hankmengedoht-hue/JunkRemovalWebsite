@@ -575,12 +575,12 @@ document.addEventListener('DOMContentLoaded', () => {
   /* Single source of truth for tree-size tiers and pricing. The pricing cards
      (services.html) are rendered from this object, and the typed tree height in
      the booking forms is mapped onto these tiers by heightToTier(); edit prices/tiers here only. */
-  const PRICING_TIERS = ['7 ft or less', '7 to 9 ft', 'Oversize (over 9 ft)'];
+  const PRICING_TIERS = ['Less than 7 ft', '7 to 9 ft', 'Oversize (over 9 ft)'];
   const PRICING = {
-    delivery: { '7 ft or less': 150, '7 to 9 ft': 175, 'Oversize (over 9 ft)': 200 },
-    removal:  { '7 ft or less': 125, '7 to 9 ft': 150, 'Oversize (over 9 ft)': 175 },
-    bundle:   { '7 ft or less': 250, '7 to 9 ft': 285, 'Oversize (over 9 ft)': 320 },
-    curbside: { '7 ft or less': 50, '7 to 9 ft': 50, 'Oversize (over 9 ft)': 65 },
+    delivery: { 'Less than 7 ft': 150, '7 to 9 ft': 175, 'Oversize (over 9 ft)': 200 },
+    removal:  { 'Less than 7 ft': 125, '7 to 9 ft': 150, 'Oversize (over 9 ft)': 175 },
+    bundle:   { 'Less than 7 ft': 250, '7 to 9 ft': 285, 'Oversize (over 9 ft)': 320 },
+    curbside: { 'Less than 7 ft': 50, '7 to 9 ft': 50, 'Oversize (over 9 ft)': 65 },
     standFee: 55,
     fromTier: 'Oversize (over 9 ft)'
   };
@@ -594,7 +594,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let feet = parseFloat(m[1]);
     if (m[2] !== undefined) feet += parseFloat(m[2]) / 12;
     if (!(feet >= 2 && feet <= 30)) return '';
-    if (feet <= 7) return PRICING_TIERS[0];
+    if (feet < 7) return PRICING_TIERS[0];
     if (feet <= 9) return PRICING_TIERS[1];
     return PRICING_TIERS[2];
   }
