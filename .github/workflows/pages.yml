@@ -15,10 +15,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Packaging and publishing run as separate jobs: when deploy-pages runs in the
+  # same job right after the upload, GitHub sometimes can't find the artifact yet
+  # ("No artifacts named github-pages were found").
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,5 +26,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
