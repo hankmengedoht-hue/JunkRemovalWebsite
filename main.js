@@ -487,16 +487,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('img[data-business-logo-alt]').forEach(img => { img.alt = s.business_name + ' logo'; });
       }
 
-      // Logo: used in the header and as the browser tab icon, edit in Admin > Site Settings
+      // Logo in the header, edit in Admin > Site Settings. The browser-tab / Google
+      // search icon is the static navy favicon set in each page's <head>.
       if (s.logo_image) {
         const logoPath = s.logo_image.replace(/^\//, '');
         document.querySelectorAll('img[data-business-logo-alt]').forEach(img => {
           img.src = logoPath;
           img.style.display = '';
-        });
-        document.querySelectorAll('link[rel="icon"]').forEach(link => {
-          link.href = logoPath;
-          link.removeAttribute('type');
         });
       }
 
