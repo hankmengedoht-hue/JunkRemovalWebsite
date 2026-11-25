@@ -986,3 +986,11 @@ a[href^="mailto:"] { overflow-wrap: break-word; }
   animation: shimmer 1.4s infinite linear;
   border-radius: var(--radius-sm);
 }
+
+.google-link {
+  display: inline-flex; align-items: center; gap: .5rem; margin-top: .85rem;
+  font-size: .85rem; font-weight: 600; color: rgba(255,255,255,.75);
+  transition: var(--transition);
+}
+.google-link svg { flex: none; }
+.google-link:hover { color: var(--green); }

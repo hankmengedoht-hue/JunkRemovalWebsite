@@ -100,6 +100,7 @@ collections:
           - { label: "Email Address", name: "email", widget: "string" }
           - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full URL e.g. https://instagram.com/charlestontreeconcierge" }
           - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false, hint: "Full URL e.g. https://facebook.com/charlestontreeconcierge" }
+          - { label: "Google Business Profile URL", name: "google_url", widget: "string", required: false, hint: "Share link to your Google profile, used for the footer \"Find us on Google\" link" }
           - { label: "Form Endpoint", name: "form_endpoint", widget: "string", required: false, hint: "Where the site forms are sent. Leave as https://forms.charlestontreeconcierge.com unless you move the form handler." }
           - label: "Accepted Payment Methods"
             name: "payment_methods"

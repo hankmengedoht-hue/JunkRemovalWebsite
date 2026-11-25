@@ -531,6 +531,9 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('a[aria-label*="Facebook"]').forEach(a => {
         if (s.facebook_url) { a.href = s.facebook_url; a.target = '_blank'; a.rel = 'noopener'; } else { a.style.display = 'none'; }
       });
+      document.querySelectorAll('a[data-google-link]').forEach(a => {
+        if (s.google_url) a.href = s.google_url; else if (s.google_url === '') a.style.display = 'none';
+      });
 
       // Payment methods section
       const pmList = document.getElementById('payment-methods-list');
